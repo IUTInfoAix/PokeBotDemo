@@ -8,7 +8,7 @@ import fr.univaix.iut.pokebattle.SmartCell;
 public class PokemonCriesCell implements SmartCell {
 
     public String ask(String question) {
-        return "Pika pika";
+        return "Puce puce";
     }
 
 }
