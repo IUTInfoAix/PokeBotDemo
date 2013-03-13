@@ -26,8 +26,8 @@ public class TwitterBot {
                         logger.info("Ignored status change");
                         return;
                     }
-
-                    String response = bot.ask(status.getText());
+                    User pseudo = status.getUser();
+                    String response = ("@" + pseudo.getScreenName() + " " + bot.ask(status.getText()));
                     if (response != null)
                         twitter.updateStatus(response);
                     
