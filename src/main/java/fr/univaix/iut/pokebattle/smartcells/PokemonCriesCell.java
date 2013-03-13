@@ -4,7 +4,7 @@ import fr.univaix.iut.pokebattle.SmartCell;
 import fr.univaix.iut.pokebattle.Tweet;
 
 /**
- * Reply to Bonjour.
+ * Reply to all.
  */
 public class PokemonCriesCell implements SmartCell {
 
