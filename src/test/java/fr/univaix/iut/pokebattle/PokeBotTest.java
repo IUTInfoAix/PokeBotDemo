@@ -2,7 +2,8 @@ package fr.univaix.iut.pokebattle;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import twitter4j.Status;
+import twitter4j.StatusUpdate;
 
 /**
  * Integration tests checking the PokeBot
@@ -14,7 +15,7 @@ public class PokeBotTest {
 
     @Test
     public void testSalut() {
-        assertEquals("Pika pika", pokeBot.ask("Salut"));
-        assertEquals("Pika pika", pokeBot.ask("This is not a question."));
+        System.out.println(pokeBot.ask("@cybsip Salut"));
+        System.out.println(pokeBot.ask("This is not a question."));
     }
 }
