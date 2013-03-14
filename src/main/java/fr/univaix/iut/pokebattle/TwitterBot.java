@@ -17,20 +17,26 @@ public class TwitterBot {
 
     public TwitterBot(final Bot bot) {
         UserStreamListener listener = new UserStreamAdapter() {
+
+
             @Override
             public void onStatus(Status status) {
                 try {
                     logger.info("TwitterUserStreamEasyExample.onStatus()");
-                    
                     if (isTweetOfMe(status) || !isTweetForMe(status)) {
                         logger.info("Ignored status change");
                         return;
                     }
+<<<<<<< HEAD
                     User pseudo = status.getUser();
                     String response = ("@" + pseudo.getScreenName() + " " + bot.ask(status.getText()));
+=======
+
+                    String response = bot.ask(new Tweet(status.getUser().getScreenName(), status.getText()));
+>>>>>>> 2bf7a026081c1360147969ecaf5901df8d4cc176
                     if (response != null)
                         twitter.updateStatus(response);
-                    
+
                 } catch (TwitterException e) {
                     e.printStackTrace();
                 }
@@ -53,6 +59,7 @@ public class TwitterBot {
     }
 
     public static void main(String[] args) {
+
         try {
             TwitterBot twitterBot = new TwitterBot(new PokeBot());
             twitterBot.startBot();

@@ -19,7 +19,7 @@ public class PokeBot implements Bot {
      * @return An answer... or null if it doesn't get it.
      */
     @Override
-    public String ask(String question) {
+    public String ask(Tweet question) {
         for (SmartCell cell : smartCells) {
             String answer = cell.ask(question);
             if (answer != null)
