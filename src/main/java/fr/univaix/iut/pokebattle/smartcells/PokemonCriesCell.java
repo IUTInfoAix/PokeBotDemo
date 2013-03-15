@@ -8,9 +8,12 @@ import fr.univaix.iut.pokebattle.Tweet;
  */
 public class PokemonCriesCell implements SmartCell {
 
-    public String ask(String question) {
-        return "Puce puce";
-
-    }
+	@Override
+	public String ask(Tweet question) {	
+		
+		
+		
+		return "@" + question.getScreenName() + " Pika pika"  ;
+	}
 
 }
