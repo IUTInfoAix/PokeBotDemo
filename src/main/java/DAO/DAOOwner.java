@@ -40,24 +40,19 @@ public class DAOOwner {
 	}
 	
 	public String getByPokemon ( String Pokemon ){
-		try{
-			
-		TypedQuery<Owner> query = entityManager.createNamedQuery(Owner.FIND_BY_POKEMON , Owner.class);
-		List<Owner> LOwner = query.getResultList();
-		Iterator<Owner> Iter = LOwner.iterator();
-		if ( Iter.hasNext() )
-			return Iter.next().getPrenom();
-		else
-			return null;
-		}
-		catch( Exception Ex){
-			return null;
-		}
+		this.entityManager.createNamedQuery(Owner.FIND_BY_POKEMON, Owner.class);
+		//TypedQuery<Owner> query = entityManager.createNamedQuery(Owner.FIND_BY_POKEMON, Owner.class);
+//		query.setParameter("poke", Pokemon);
+//		List<Owner> LOwner = query.getResultList();
+//		Iterator<Owner> Iter = LOwner.iterator();
+//			return Iter.next().getPrenom();
+		return null;
+
 	}
 
 	public int computeNbPoke( String Prenom ){
 		
-		TypedQuery<Owner> query = entityManager.createNamedQuery(Owner.COUNT_POKE , Owner.class);
+		TypedQuery<Owner> query = entityManager.createNamedQuery(Owner.COUNT_POKE, Owner.class);
 		return query.getFirstResult();
 		
 	}

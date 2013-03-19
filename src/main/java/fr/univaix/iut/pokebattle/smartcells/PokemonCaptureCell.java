@@ -1,9 +1,16 @@
 package fr.univaix.iut.pokebattle.smartcells;
 
-import java.security.acl.Owner;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 import twitter4j.Twitter;
+import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
+import DAO.DAOFactory;
+import DAO.DAOOwner;
+import beans.Owner;
 import fr.univaix.iut.pokebattle.SmartCell;
 import fr.univaix.iut.pokebattle.Tweet;
 
@@ -13,28 +20,32 @@ import fr.univaix.iut.pokebattle.Tweet;
 public class PokemonCaptureCell implements SmartCell {
 
 	@Override
-	public String ask(Tweet question) {	
+	public String ask(Tweet question) throws IllegalStateException, TwitterException {	
 		Twitter twitter = TwitterFactory.getSingleton();
-		DAOFactory daof = new DAOFactory();
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Pokemon");
+        EntityManager em = emf.createEntityManager();
+        
+		DAOFactory daof = new DAOFactory(em);
 		DAOOwner daoOwn = daof.createDAOOwner();
-		Owner owner = DAOOwner.getByPokemon(twitter.getScreenName());
+		Owner owner = new Owner();
+		System.out.println(daoOwn.getByPokemon("@" + twitter.getScreenName()));
+		owner.setPrenom(daoOwn.getByPokemon("@" + twitter.getScreenName()));
+
 		
 		if ( question.getText().contains("Pokeball")) {
-			if (owner != null) {
-				
+			if (owner.getPrenom() != null) {
 				Owner own = new Owner();
 				own.setPrenom(question.getScreenName());
-				own.setPokemon(twitter.getScreenName());
+
+				own.setPokemon("@" + twitter.getScreenName());
 				
-				EntityManagerFactory emf = Persistence.createEntityManagerFactory("gestionPedaPU");
-		        EntityManager em = emf.createEntityManager();
+				em.getTransaction().begin();
+				em.persist(own);
+				em.getTransaction().commit();
 		        
-		        em.getTransaction().begin();
-		        em.persist(own);
-		        em.getTransaction().commit();
-		        
-				return "@" + question.getScreenName() + ' ' + "@" + question.getScreenName() + "is my owner";
+				return question.getScreenName() + ' ' + question.getScreenName() + "is my owner";
 			}
+			System.out.println("coucou");
 		}
 		
 		return null;

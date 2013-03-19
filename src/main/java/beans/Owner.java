@@ -11,7 +11,7 @@ import javax.persistence.NamedQuery;
 @Entity
 @NamedQueries({
     @NamedQuery(name = Owner.FIND_BY_PRENOM, query = "SELECT Pokemon FROM Owner ow WHERE ow.Prenom = :prenom"),
-    @NamedQuery(name = Owner.FIND_BY_POKEMON, query = "SELECT Prenom FROM Owner ow WHERE ow.Pokemon = :pokemon"),
+    @NamedQuery(name = Owner.FIND_BY_POKEMON, query = "SELECT ow.Prenom FROM Owner ow WHERE ow.Pokemon = :poke"),
     @NamedQuery(name = Owner.COUNT_POKE, query = "SELECT Pokemon FROM Owner ow WHERE ow.Pokemon = :pokemon"),
 })
 public class Owner implements Serializable{
