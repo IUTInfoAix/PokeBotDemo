@@ -16,6 +16,16 @@ import javax.persistence.NamedQuery;
 })
 public class Owner implements Serializable{
 
+	public Owner() {
+		super();
+	}
+	
+	public Owner(String pokemon, String prenom) {
+		super();
+		Pokemon = pokemon;
+		Prenom = prenom;
+	}
+
 	private static final long serialVersionUID = 8869596535250990885L;
 	
 	public static final String FIND_BY_PRENOM = "findByPrenom";
