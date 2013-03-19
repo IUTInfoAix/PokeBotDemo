@@ -10,9 +10,6 @@ public class PokemonCriesCell implements SmartCell {
 
 	@Override
 	public String ask(Tweet question) {	
-		
-		
-		
 		return "@" + question.getScreenName() + " Pika pika"  ;
 	}
 

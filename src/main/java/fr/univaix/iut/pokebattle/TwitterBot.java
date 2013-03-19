@@ -1,13 +1,23 @@
 package fr.univaix.iut.pokebattle;
 
-import com.twitter.hbc.httpclient.ControlStreamException;
-import fr.univaix.iut.pokebattle.tuse.TwitterUserStreamEasy;
-import fr.univaix.iut.pokebattle.tuse.UserStreamAdapter;
+import java.io.IOException;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import twitter4j.*;
 
-import java.io.IOException;
+import twitter4j.Status;
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
+import twitter4j.TwitterFactory;
+import twitter4j.UserStreamListener;
+
+import com.twitter.hbc.httpclient.ControlStreamException;
+
+import fr.univaix.iut.pokebattle.Bot;
+import fr.univaix.iut.pokebattle.PokeBot;
+import fr.univaix.iut.pokebattle.Tweet;
+import fr.univaix.iut.pokebattle.tuse.TwitterUserStreamEasy;
+import fr.univaix.iut.pokebattle.tuse.UserStreamAdapter;
 
 public class TwitterBot {
     private final static Logger logger = LoggerFactory.getLogger(TwitterBot.class);
@@ -18,8 +28,6 @@ public class TwitterBot {
     public TwitterBot(final Bot bot) {
         UserStreamListener listener = new UserStreamAdapter() {
 
-
-            @Override
             public void onStatus(Status status) {
                 try {
                     logger.info("TwitterUserStreamEasyExample.onStatus()");
