@@ -11,14 +11,16 @@ public class PokemonOwnerCell implements SmartCell {
 	@Override
 	public String ask(Tweet question) {	
 		
-		/*Owner owner = new Owner();*/
-		
 		if (question.getText().contains("Owner")) {
-			return "@" + question.getScreenName() + ' ' + "@nom du owner" + " is my owner"  ;
-		}
-		else {
+			/*Owner owner = new Owner();*/
+			
+			if (question.getText().contains("Owner")) {
+				return "@" + question.getScreenName() + ' ' + "@nom du owner" + " is my owner"  ;
+			}
 			return "@" + question.getScreenName() + " No owner";
+
 		}
+		return null;
 	}
 
 }
