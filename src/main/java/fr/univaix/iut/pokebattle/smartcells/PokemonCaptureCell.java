@@ -6,10 +6,13 @@ import fr.univaix.iut.pokebattle.Tweet;
 /**
  * Reply to all.
  */
-public class PokemonCriesCell implements SmartCell {
+public class PokemonCaptureCell implements SmartCell {
 
 	@Override
 	public String ask(Tweet question) {	
+		
+		
+		
 		return "@" + question.getScreenName() + " Pika pika"  ;
 	}
 
