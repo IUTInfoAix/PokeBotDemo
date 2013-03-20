@@ -27,17 +27,18 @@ public class PokemonAttackCell implements SmartCell {
 				
 				String[] phrase = question.getText().split(" ");
 				Owner owner = daoOwn.getByPokemon(phrase[0]) ;
-
+				
+				
 				if ( question.getText().contains("#attack")) 
 				{
-					if ( owner.getPrenom().equals("@" + twitter.getScreenName())) 
+					if ( owner.getPrenom().equals("@" + question.getScreenName())) 
 					{
 				        return phrase[3] + " " + phrase[1] + " " + phrase [2] + "! /cc " + owner.getPrenom();  
 						//return "@" + question.getScreenName() + ' ' + "@" + question.getScreenName() + "is my owner";
 					}
 					else
 					{
-						return question.getScreenName() + " " + owner.getPrenom() + " is my owner";
+						return "@" + question.getScreenName() + " " + owner.getPrenom() + " is my owner";
 					}
 
 				}

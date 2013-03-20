@@ -16,7 +16,7 @@ public class PokemonAttackCellTest {
 	@Test
 	public void testAttack() throws IllegalStateException, TwitterException {
 		//assertEquals("@bulbizarre #attack #foudre! /cc @pcreux", cell.ask(new Tweet("@pikachu #attack #foudre @bulbizarre")));
-		System.out.println(cell.ask(new Tweet("@CloudDeLuna", "@GwenGoupix #attack #flameche @Smogogo13")));
+		System.out.println(cell.ask(new Tweet("cybsip", "@Smogogo13 #attack #charge @GwenGoupix")));
 	}
 
 }
