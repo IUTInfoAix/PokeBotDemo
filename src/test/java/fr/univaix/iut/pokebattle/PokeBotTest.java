@@ -14,7 +14,6 @@ import fr.univaix.iut.pokebattle.DAO.DAOFactory;
 import fr.univaix.iut.pokebattle.DAO.DAOOwner;
 import fr.univaix.iut.pokebattle.beans.Owner;
 
-
 /**
  * Integration tests checking the PokeBot
  * behavior. We just test some cases to make sure that the
@@ -32,15 +31,11 @@ public class PokeBotTest {
     @Test
     public void testOwner() {
         Owner monOwner = new Owner("@Pika","@John");
-        System.out.println(monOwner);
+
         
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("Pokemon");
         EntityManager em = emf.createEntityManager();
         DAOFactory daof = new DAOFactory(em);
-        DAOOwner daoOwn = daof.createDAOOwner();
-        
-        
-        System.out.println(daoOwn.getByPokemon("@GwenGoupix"));
-        
+        DAOOwner daoOwn = daof.createDAOOwner();        
     }
 }

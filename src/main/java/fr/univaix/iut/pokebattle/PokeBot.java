@@ -2,6 +2,7 @@ package fr.univaix.iut.pokebattle;
 
 import twitter4j.TwitterException;
 import fr.univaix.iut.pokebattle.smartcells.PokemonAttackCell;
+import fr.univaix.iut.pokebattle.smartcells.PokemonCaptureCell;
 import fr.univaix.iut.pokebattle.smartcells.PokemonCriesCell;
 
 
@@ -12,8 +13,8 @@ public class PokeBot implements Bot {
      */
     final SmartCell[] smartCells = new SmartCell[]{
     		new PokemonAttackCell(),
+    		new PokemonCaptureCell(),
     		new PokemonCriesCell(),
-            
     };
 
     /**
