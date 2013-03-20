@@ -8,6 +8,8 @@ import javax.persistence.Persistence;
 
 import org.junit.Test;
 
+import twitter4j.TwitterException;
+
 import fr.univaix.iut.pokebattle.DAO.DAOFactory;
 import fr.univaix.iut.pokebattle.DAO.DAOOwner;
 import fr.univaix.iut.pokebattle.beans.Owner;
@@ -22,7 +24,7 @@ public class PokeBotTest {
     PokeBot pokeBot = new PokeBot();
 
     @Test
-    public void testSalut() {
+    public void testSalut() throws IllegalStateException, TwitterException {
         assertEquals("@azaz Pika pika", pokeBot.ask(new Tweet("azaz","Salut")));
         assertEquals("@azaz Pika pika", pokeBot.ask(new Tweet("azaz","This is not a question.")));
     }
@@ -34,11 +36,6 @@ public class PokeBotTest {
         
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("Pokemon");
         EntityManager em = emf.createEntityManager();
-        em.getTransaction().begin();
-        
-        em.persist(monOwner);
-        
-        em.getTransaction().commit();
         DAOFactory daof = new DAOFactory(em);
         DAOOwner daoOwn = daof.createDAOOwner();
         
