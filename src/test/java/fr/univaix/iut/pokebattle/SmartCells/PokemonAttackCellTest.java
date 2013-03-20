@@ -1,5 +1,7 @@
 package fr.univaix.iut.pokebattle.SmartCells;
 
+import static org.junit.Assert.*;
+
 import org.junit.Test;
 
 import twitter4j.Twitter;
@@ -15,8 +17,8 @@ public class PokemonAttackCellTest {
 	
 	@Test
 	public void testAttack() throws IllegalStateException, TwitterException {
-		//assertEquals("@bulbizarre #attack #foudre! /cc @pcreux", cell.ask(new Tweet("@pikachu #attack #foudre @bulbizarre")));
-		System.out.println(cell.ask(new Tweet("cybsip", "@Smogogo13 #attack #charge @GwenGoupix")));
+		assertEquals("@GwenGoupix #attack #charge!/cc @CloudDeLuna @cybsip",
+				(cell.ask(new Tweet("cybsip", "@Smogogo13 #attack #charge @GwenGoupix /cc @CloudDeLuna"))));
 	}
 
 }
