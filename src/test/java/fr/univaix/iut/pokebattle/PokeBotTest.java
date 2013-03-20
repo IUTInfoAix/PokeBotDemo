@@ -34,11 +34,6 @@ public class PokeBotTest {
         
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("Pokemon");
         EntityManager em = emf.createEntityManager();
-        em.getTransaction().begin();
-        
-        em.persist(monOwner);
-        
-        em.getTransaction().commit();
         DAOFactory daof = new DAOFactory(em);
         DAOOwner daoOwn = daof.createDAOOwner();
         
