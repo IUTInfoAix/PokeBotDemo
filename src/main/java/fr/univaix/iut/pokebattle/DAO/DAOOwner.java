@@ -34,8 +34,9 @@ public class DAOOwner {
 	}
 	
 	public Owner getByPokemon ( String Pokemon ){
-		try{
-				
+		try 
+		{
+
 			TypedQuery<Owner> query = entityManager.createNamedQuery(Owner.FIND_BY_POKEMON , Owner.class);
 			query.setParameter("pokemon", Pokemon);
 			List<Owner> LOwn = query.getResultList();
@@ -46,14 +47,14 @@ public class DAOOwner {
 			
 			return Own;
 		}
-		catch(java.util.NoSuchElementException Ex)
+
+		catch (java.util.NoSuchElementException Exc)
 		{
 			return null;
 		}
 	}
 
 	public int computeNbPoke( String Prenom ){
-		
 		try{
 			
 			TypedQuery<Owner> query = entityManager.createNamedQuery(Owner.COUNT_POKE , Owner.class);
@@ -64,7 +65,6 @@ public class DAOOwner {
 		{
 			return 0;
 		}
-		
 	}
 	
 	

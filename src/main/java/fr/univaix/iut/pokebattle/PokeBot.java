@@ -4,6 +4,7 @@ import twitter4j.TwitterException;
 import fr.univaix.iut.pokebattle.smartcells.PokemonAttackCell;
 import fr.univaix.iut.pokebattle.smartcells.PokemonCaptureCell;
 import fr.univaix.iut.pokebattle.smartcells.PokemonCriesCell;
+import fr.univaix.iut.pokebattle.smartcells.PokemonOwnerCell;
 
 
 public class PokeBot implements Bot {
@@ -14,7 +15,8 @@ public class PokeBot implements Bot {
     final SmartCell[] smartCells = new SmartCell[]{
     		new PokemonAttackCell(),
     		new PokemonCaptureCell(),
-    		new PokemonCriesCell(),
+            new PokemonOwnerCell(),
+            new PokemonCriesCell(),
     };
 
     /**

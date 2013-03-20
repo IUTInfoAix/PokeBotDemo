@@ -31,11 +31,11 @@ public class PokeBotTest {
     @Test
     public void testOwner() {
         Owner monOwner = new Owner("@Pika","@John");
-
         
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("Pokemon");
         EntityManager em = emf.createEntityManager();
         DAOFactory daof = new DAOFactory(em);
+
         DAOOwner daoOwn = daof.createDAOOwner();        
     }
 }
