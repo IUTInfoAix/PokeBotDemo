@@ -9,5 +9,6 @@ CREATE TABLE OWNER
    ) ;
 
 insert into OWNER VALUES ("@CloudDeLuna", "@GwenGoupix");
+insert into OWNER VALUES ("@cybsip", "@Smogogo13");
 
 
