@@ -1,4 +1,4 @@
-package fr.univaix.iut.pokebattle.SmartCells;
+/*package fr.univaix.iut.pokebattle.SmartCells;
 
 import static org.junit.Assert.assertEquals;
 
@@ -33,4 +33,4 @@ public class PokemonCaptureCellTest {
 		Owner owner = new Owner();
 		System.out.println(daoOwn.getByPokemon("@CloudDeLuna"));
     }
-}
+}*/

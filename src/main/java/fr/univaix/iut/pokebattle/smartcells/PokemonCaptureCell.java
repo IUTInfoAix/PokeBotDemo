@@ -8,9 +8,7 @@ import javax.persistence.Persistence;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
-import DAO.DAOFactory;
-import DAO.DAOOwner;
-import beans.Owner;
+
 import fr.univaix.iut.pokebattle.SmartCell;
 import fr.univaix.iut.pokebattle.Tweet;
 
@@ -27,13 +25,11 @@ public class PokemonCaptureCell implements SmartCell {
         
 		DAOFactory daof = new DAOFactory(em);
 		DAOOwner daoOwn = daof.createDAOOwner();
-		Owner owner = new Owner();
-		System.out.println(daoOwn.getByPokemon("@" + twitter.getScreenName()));
-		owner.setPrenom(daoOwn.getByPokemon("@" + twitter.getScreenName()));
+		Owner owner = daoOwn.getByPokemon("@" + twitter.getScreenName());
 
 		
 		if ( question.getText().contains("Pokeball")) {
-			if (owner.getPrenom() != null) {
+			if (owner.getPrenom().equals(null)) {
 				Owner own = new Owner();
 				own.setPrenom(question.getScreenName());
 
