@@ -33,8 +33,8 @@ public class PokemonAttackCell implements SmartCell {
 				{
 					if ( owner.getPrenom().equals("@" + question.getScreenName())) 
 					{
-				        return phrase[3] + " " + phrase[1] + " " + phrase [2] 
-				        		+ "!" + phrase[4] + " " + phrase[5] + " " + owner.getPrenom();  
+				        return "J'attaque " + phrase[3] + " du dresseur " + phrase[5] + " avec " + phrase [2] 
+				        		+ "!"  + ", sur ordre de mon dresseur qui est " + owner.getPrenom();  
 						//return "@" + question.getScreenName() + ' ' + "@" + question.getScreenName() + "is my owner";
 					}
 					else
