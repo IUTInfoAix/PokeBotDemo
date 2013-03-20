@@ -5,13 +5,13 @@
   version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
   <persistence-unit name="Pokemon" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-<class>fr.univaix.iut.progbd.beans.Owner</class>
+<class>fr.univaix.iut.pokebattle.beans.Owner</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/Pokemon"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
       <property name="javax.persistence.jdbc.user" value="monUser"/>
       <property name="javax.persistence.jdbc.password" value="monPassword"/>
-      <property name="eclipselink.logging.level" value="ALL"/>
+    <!--  <property name="eclipselink.logging.level" value="ALL"/>-->
 <!-- <property name="eclipselink.ddl-generation" value="create-tables"/> -->
     </properties>
   </persistence-unit>

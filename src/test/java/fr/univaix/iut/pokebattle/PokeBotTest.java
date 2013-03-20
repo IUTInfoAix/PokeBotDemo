@@ -8,9 +8,10 @@ import javax.persistence.Persistence;
 
 import org.junit.Test;
 
-import DAO.DAOFactory;
-import DAO.DAOOwner;
-import beans.Owner;
+import fr.univaix.iut.pokebattle.DAO.DAOFactory;
+import fr.univaix.iut.pokebattle.DAO.DAOOwner;
+import fr.univaix.iut.pokebattle.beans.Owner;
+
 
 /**
  * Integration tests checking the PokeBot
@@ -28,16 +29,21 @@ public class PokeBotTest {
     
     @Test
     public void testOwner() {
-        Owner monOwner = new Owner("Pika","John");
+        Owner monOwner = new Owner("@Pika","@John");
         System.out.println(monOwner);
         
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("Pokemon");
         EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        
+        em.persist(monOwner);
+        
+        em.getTransaction().commit();
         DAOFactory daof = new DAOFactory(em);
         DAOOwner daoOwn = daof.createDAOOwner();
         
-        Owner UnAutreOwner = daoOwn.getByPokemon("@GwenGoupix");
-        System.out.println(UnAutreOwner);
+        
+        System.out.println(daoOwn.getByPokemon("@GwenGoupix"));
         
     }
 }

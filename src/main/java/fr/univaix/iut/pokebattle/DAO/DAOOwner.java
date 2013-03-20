@@ -1,12 +1,14 @@
-package DAO;
+package fr.univaix.iut.pokebattle.DAO;
 
 
+import java.util.Iterator;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
-import beans.Owner;
+import fr.univaix.iut.pokebattle.beans.Owner;
+
 
 public class DAOOwner {
 
@@ -28,7 +30,13 @@ public class DAOOwner {
 
 		TypedQuery<Owner> query = entityManager.createNamedQuery(Owner.FIND_BY_POKEMON , Owner.class);
 		query.setParameter("pokemon", Pokemon);
-		return query.getSingleResult();
+		List<Owner> LOwn = query.getResultList();
+		
+		Iterator<Owner> iter = LOwn.iterator();
+		
+		Owner Own = iter.next();
+		
+		return Own;
 
 
 	}

@@ -1,4 +1,4 @@
-package DAO;
+package fr.univaix.iut.pokebattle.DAO;
 
 import javax.persistence.EntityManager;
 

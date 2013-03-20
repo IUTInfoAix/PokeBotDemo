@@ -1,4 +1,4 @@
-package beans;
+package fr.univaix.iut.pokebattle.beans;
 
 import java.io.Serializable;
 
@@ -10,12 +10,24 @@ import javax.persistence.NamedQuery;
 
 @Entity
 @NamedQueries({
-    @NamedQuery(name = Owner.FIND_BY_PRENOM, query = "SELECT ow.Pokemon FROM Owner ow WHERE ow.Prenom = :prenom"),
-    @NamedQuery(name = Owner.FIND_BY_POKEMON, query = "SELECT ow.Prenom FROM Owner ow WHERE ow.Pokemon = :pokemon"),
+    @NamedQuery(name = Owner.FIND_BY_PRENOM, query = "SELECT ow FROM Owner ow WHERE ow.Prenom = :prenom"),
+    @NamedQuery(name = Owner.FIND_BY_POKEMON, query = "SELECT ow FROM Owner ow WHERE ow.Pokemon = :pokemon"),
     @NamedQuery(name = Owner.COUNT_POKE, query = "SELECT COUNT(ow.Pokemon) FROM Owner ow WHERE ow.Prenom = :prenom"),
 })
 public class Owner implements Serializable{
 
+	private static final long serialVersionUID = 8869596535250990885L;
+	
+	public static final String FIND_BY_PRENOM = "findByPrenom";
+	public static final String FIND_BY_POKEMON = "findByPokemon";
+	public static final String COUNT_POKE = "CountPokemon";
+	
+	@Id 
+	private String Pokemon; 
+	
+	private String Prenom; 
+
+	
 	public Owner() {
 		super();
 	}
@@ -25,20 +37,7 @@ public class Owner implements Serializable{
 		Pokemon = pokemon;
 		Prenom = prenom;
 	}
-
-	private static final long serialVersionUID = 8869596535250990885L;
 	
-	public static final String FIND_BY_PRENOM = "findByPrenom";
-	public static final String FIND_BY_POKEMON = "findByPokemon";
-	public static final String COUNT_POKE = "CountPokemon";
-	
-	@Id 
-	@GeneratedValue
-	private String Pokemon; 
-	
-	@GeneratedValue
-	private String Prenom; 
-
 	public String getPokemon() {
 		return Pokemon;
 	}
