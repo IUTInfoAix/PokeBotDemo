@@ -16,7 +16,6 @@ public class PokemonCaptureCellTest {
     @Test
     public void testCaptureFalse() throws IllegalStateException, TwitterException 
     {
-    	System.out.println(cell.ask(new Tweet("azaz","@Smogogo13 pokeball goo !")));
-    	//assertEquals("@azaz @azaz is my owner", cell.ask(new Tweet("azaz","@Smogogo13 pokeball goo !")));
+    	assertEquals("@azaz @cybsip is my owner !", cell.ask(new Tweet("azaz","@Smogogo13 pokeball goo !")));
     }
 }
