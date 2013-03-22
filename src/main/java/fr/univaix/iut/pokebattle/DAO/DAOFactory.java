@@ -13,5 +13,9 @@ public class DAOFactory {
 	public DAOOwner createDAOOwner() {
 		return new DAOOwner(entityManager);
 	}
+	
+	public DAOPokemon createDAOPokemon() {
+		return new DAOPokemon(entityManager);
+	}
 
 }

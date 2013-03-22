@@ -3,16 +3,18 @@ package fr.univaix.iut.pokebattle.beans;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 
 @Entity
 @NamedQueries({
     @NamedQuery(name = Owner.FIND_BY_PRENOM, query = "SELECT ow FROM Owner ow WHERE ow.Prenom = :prenom"),
     @NamedQuery(name = Owner.FIND_BY_POKEMON, query = "SELECT ow FROM Owner ow WHERE ow.Pokemon = :pokemon"),
     @NamedQuery(name = Owner.COUNT_POKE, query = "SELECT COUNT(ow.Pokemon) FROM Owner ow WHERE ow.Prenom = :prenom"),
+    @NamedQuery(name = Owner.FIND_ALL, query = "SELECT ow FROM Owner ow "),
 })
 public class Owner implements Serializable{
 
@@ -21,9 +23,12 @@ public class Owner implements Serializable{
 	public static final String FIND_BY_PRENOM = "findByPrenom";
 	public static final String FIND_BY_POKEMON = "findByPokemon";
 	public static final String COUNT_POKE = "CountPokemon";
+	public static final String FIND_ALL = "findAll";
 	
 	@Id 
-	private String Pokemon; 
+	@OneToOne 
+	@JoinColumn( name = "POKEMON")
+	private Pokemon Pokemon; 
 	
 	private String Prenom; 
 
@@ -32,17 +37,17 @@ public class Owner implements Serializable{
 		super();
 	}
 	
-	public Owner(String pokemon, String prenom) {
+	public Owner(Pokemon pokemon, String prenom) {
 		super();
 		Pokemon = pokemon;
 		Prenom = prenom;
 	}
 	
-	public String getPokemon() {
+	public Pokemon getPokemon() {
 		return Pokemon;
 	}
 
-	public void setPokemon(String pokemon) {
+	public void setPokemon(Pokemon pokemon) {
 		Pokemon = pokemon;
 	}
 
@@ -84,10 +89,11 @@ public class Owner implements Serializable{
 			return false;
 		return true;
 	}
+
 	//////////////////////////////ATTENTION A L'OBJET POKEMON ///////////////////////////////////////////////
 	@Override
 	public String toString() {
-		return "Owner [Pokemon=" + Pokemon + ", Prenom=" + Prenom + "]";
+		return "Owner [Pokemon=" + Pokemon.getNom() + ", Prenom=" + Prenom + "]";
 	}
 	
 	

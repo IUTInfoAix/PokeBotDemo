@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 import fr.univaix.iut.pokebattle.beans.Owner;
+import fr.univaix.iut.pokebattle.beans.Pokemon;
 
 
 public class DAOOwner {
@@ -33,7 +34,7 @@ public class DAOOwner {
 		}
 	}
 	
-	public Owner getByPokemon ( String Pokemon ){
+	public Owner getByPokemon ( Pokemon Pokemon ){
 		try 
 		{
 
@@ -64,6 +65,20 @@ public class DAOOwner {
 		catch(java.util.NoSuchElementException Ex)
 		{
 			return 0;
+		}
+	}
+	
+	public List<Owner> findAll ( ){
+		try{	
+			
+			TypedQuery<Owner> query = entityManager.createNamedQuery(Owner.FIND_ALL , Owner.class);
+			return query.getResultList();
+			
+		}
+		
+		catch(java.util.NoSuchElementException Ex)
+		{
+			return null;
 		}
 	}
 	

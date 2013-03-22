@@ -12,7 +12,9 @@ import fr.univaix.iut.pokebattle.SmartCell;
 import fr.univaix.iut.pokebattle.Tweet;
 import fr.univaix.iut.pokebattle.DAO.DAOFactory;
 import fr.univaix.iut.pokebattle.DAO.DAOOwner;
+import fr.univaix.iut.pokebattle.DAO.DAOPokemon;
 import fr.univaix.iut.pokebattle.beans.Owner;
+import fr.univaix.iut.pokebattle.beans.Pokemon;
 
 /**
  * Reply to all.
@@ -24,11 +26,16 @@ public class PokemonOwnerCell implements SmartCell {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Pokemon");
 		EntityManager em = emf.createEntityManager();
 		
-		String [] phrase = question.getText().split(" ");
 		
 		DAOFactory daof = new DAOFactory(em);
 		DAOOwner daoOwner = daof.createDAOOwner();
-		Owner owner = daoOwner.getByPokemon(phrase[0]);
+		
+		DAOPokemon daoPoke = daof.createDAOPokemon();
+		
+		String[] phrase = question.getText().split(" ");
+		Pokemon Poke = daoPoke.getByNom(phrase[0]);
+		
+		Owner owner = daoOwner.getByPokemon(Poke);
 		
 
 		if (question.getText().contains("owner")) {

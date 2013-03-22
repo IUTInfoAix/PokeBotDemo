@@ -15,10 +15,10 @@
         <maven.compiler.source>1.6</maven.compiler.source>
         <maven.compiler.target>1.6</maven.compiler.target>
         <!-- Fill these in via https://dev.twitter.com/apps -->
-        <consumer.key>joywAPokONieyjIvhYUxuQ</consumer.key>
-        <consumer.secret>ZgPupfA69dgkHE0n1Vo9OUAhTwoCipXxBbg3Vy0H24</consumer.secret>
-        <access.token>1263823777-r4NUNDja5069zJ692xkMXB9mhqpujjddVatECQs</access.token>
-        <access.token.secret>UefBD2h8t41vWV5h7Hq4LGjEFqXQHGCPSbvrDN6AVlc</access.token.secret>
+        <consumer.key>z9X4c6Ksju6ZyXA4JCR01w</consumer.key>
+        <consumer.secret>BrRx8WvgBaGY3qLpdnkzklcPUhWuWSbHanCjCFIXVHA</consumer.secret>
+        <access.token>1263971030-ubqh7ypggWpivEaTrM0n8QQzfkCRCNpevpkToF9</access.token>
+        <access.token.secret>T5pBjoHOmK90YfNKmBjrUngXAUhyyixIrlc0cEteI</access.token.secret>
 
     </properties>
 

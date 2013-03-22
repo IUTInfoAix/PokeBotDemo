@@ -12,7 +12,9 @@ import fr.univaix.iut.pokebattle.SmartCell;
 import fr.univaix.iut.pokebattle.Tweet;
 import fr.univaix.iut.pokebattle.DAO.DAOFactory;
 import fr.univaix.iut.pokebattle.DAO.DAOOwner;
+import fr.univaix.iut.pokebattle.DAO.DAOPokemon;
 import fr.univaix.iut.pokebattle.beans.Owner;
+import fr.univaix.iut.pokebattle.beans.Pokemon;
 
 /**
  * Reply to all.
@@ -26,16 +28,18 @@ public class PokemonCaptureCell implements SmartCell {
         
 		DAOFactory daof = new DAOFactory(em);
 		DAOOwner daoOwn = daof.createDAOOwner();
+		DAOPokemon daoPoke = daof.createDAOPokemon();
 		
-		String [] phrase = question.getText().split(" ");
-		Owner owner = daoOwn.getByPokemon(phrase[0]);
+		String[] phrase = question.getText().split(" ");
+		Pokemon Poke = daoPoke.getByNom(phrase[0]);
+		Owner owner = daoOwn.getByPokemon(Poke);
 		
 		if ( question.getText().contains("pokeball")) {
 			if (owner == null) {
 				Owner own = new Owner();
 				own.setPrenom("@" + question.getScreenName());
 
-				own.setPokemon(phrase[0]);
+				own.setPokemon(Poke);
 				
 				em.getTransaction().begin();
 				em.persist(own);
