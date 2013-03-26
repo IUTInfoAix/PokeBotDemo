@@ -1,0 +1,10 @@
+debug=true
+oauth.consumerKey=joywAPokONieyjIvhYUxuQ
+oauth.consumerSecret=ZgPupfA69dgkHE0n1Vo9OUAhTwoCipXxBbg3Vy0H24
+oauth.accessToken=1263823777-r4NUNDja5069zJ692xkMXB9mhqpujjddVatECQs
+oauth.accessTokenSecret=UefBD2h8t41vWV5h7Hq4LGjEFqXQHGCPSbvrDN6AVlc
+
+<consumer.key>joywAPokONieyjIvhYUxuQ</consumer.key>
+<consumer.secret>ZgPupfA69dgkHE0n1Vo9OUAhTwoCipXxBbg3Vy0H24</consumer.secret>
+<access.token>1263823777-r4NUNDja5069zJ692xkMXB9mhqpujjddVatECQs</access.token>
+<access.token.secret>UefBD2h8t41vWV5h7Hq4LGjEFqXQHGCPSbvrDN6AVlc</access.token.secret>
