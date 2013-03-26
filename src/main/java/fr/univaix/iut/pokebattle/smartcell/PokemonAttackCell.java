@@ -45,16 +45,8 @@ public class PokemonAttackCell implements SmartCell {
 					{
 						Poke = daoPoke.getByNom(phrase[3]);
 						
-						char PVStr[] = Poke.getPV().toCharArray();
-						String PVint = "" ;
-						for ( int i = 3 ; i < PVStr.length; ++i )
-						{
-							PVint = PVint + PVStr[i];
-						}
-						int PVPoke = Integer.parseInt(PVint.toString());
-						PVPoke = PVPoke -10;
-						PVint = "PV."+PVPoke;
-						Poke.setPV(PVint);
+						int PVPoke = Poke.getPV();
+						Poke.setPV(PVPoke-10);
 						em.getTransaction().begin();
 						em.persist(Poke);
 						em.getTransaction().commit();

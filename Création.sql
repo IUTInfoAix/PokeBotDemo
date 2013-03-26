@@ -14,13 +14,19 @@ insert into OWNER VALUES ("@CloudDeLuna", "@GwenGoupix");
 insert into OWNER VALUES ("@cybsip", "@Smogogo13");
 
 CREATE TABLE POKEMON
-   (	NOM VARCHAR(20),
-	RACE VARCHAR(20),
-	PV VARCHAR(20),
-	NIVEAU VARCHAR(20),
-	PRIMARY KEY (NOM),
-	FOREIGN KEY (NOM) REFERENCES OWNER(POKEMON)
+   (    NOM VARCHAR(20),
+        RACE VARCHAR(20),
+        PV INT,
+        NIVEAU VARCHAR(20),
+        XP VARCHAR(20),
+        ATTS INT,
+        DEFS INT,
+        ATTSPE INT,
+        DEFSPE INT,
+        VIT INT,
+        PRIMARY KEY (NOM),
+        FOREIGN KEY (NOM) REFERENCES OWNER(POKEMON)
    );
-
-insert into POKEMON VALUES ( "@GwenGoupix" , "Goupix" , "PV.100" , "N.1" );
-insert into POKEMON VALUES ( "@Smogogo13" , "Smogogo" , "PV.100" , "N.1" );
+ 
+INSERT INTO POKEMON VALUES ( "@GwenGoupix" , "Goupix" , 100 , "N.1" , "XP.0" , 0 , 0 , 0 , 0 , 0 );
+INSERT INTO POKEMON VALUES ( "@Smogogo13" , "Smogogo" , 100 , "N.1" , "XP.0" , 0 , 0 , 0 , 0 , 0 );
