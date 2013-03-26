@@ -1,15 +1,18 @@
-package fr.univaix.iut.pokebattle;
+package fr.univaix.iut.pokebattle.bot;
 
 import twitter4j.TwitterException;
-import fr.univaix.iut.pokebattle.smartcells.PokemonAttackCell;
-import fr.univaix.iut.pokebattle.smartcells.PokemonCaptureCell;
-import fr.univaix.iut.pokebattle.smartcells.PokemonCriesCell;
-import fr.univaix.iut.pokebattle.smartcells.PokemonOwnerCell;
+import fr.univaix.iut.pokebattle.smartcell.PokemonAttackCell;
+import fr.univaix.iut.pokebattle.smartcell.PokemonCaptureCell;
+import fr.univaix.iut.pokebattle.smartcell.PokemonCriesCell;
+import fr.univaix.iut.pokebattle.smartcell.PokemonOwnerCell;
+import fr.univaix.iut.pokebattle.smartcell.SmartCell;
+import fr.univaix.iut.pokebattle.twitter.Tweet;
+
 
 
 public class PokeBot implements Bot {
     /**
-     * List of SmartCells the questions go through to
+     * List of smartcell the questions go through to
      * find an answer.
      */
     final SmartCell[] smartCells = new SmartCell[]{
@@ -20,7 +23,7 @@ public class PokeBot implements Bot {
     };
 
     /**
-     * Ask something to BoBot, it will respond to you.
+     * Ask something to Bot, it will respond to you.
      *
      * @param question The question you ask.
      * @return An answer... or null if it doesn't get it.

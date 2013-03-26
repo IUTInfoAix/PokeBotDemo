@@ -1,7 +1,7 @@
-package fr.univaix.iut.pokebattle;
+package fr.univaix.iut.pokebattle.bot;
 
-import fr.univaix.iut.pokebattle.twitter.Tweet;
 import twitter4j.TwitterException;
+import fr.univaix.iut.pokebattle.twitter.Tweet;
 
 public interface Bot {
     String ask(Tweet question) throws IllegalStateException, TwitterException;

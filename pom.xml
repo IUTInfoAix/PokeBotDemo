@@ -14,12 +14,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.6</maven.compiler.source>
         <maven.compiler.target>1.6</maven.compiler.target>
-        <!-- Fill these in via https://dev.twitter.com/apps -->
-        <consumer.key>z9X4c6Ksju6ZyXA4JCR01w</consumer.key>
-        <consumer.secret>BrRx8WvgBaGY3qLpdnkzklcPUhWuWSbHanCjCFIXVHA</consumer.secret>
-        <access.token>1263971030-ubqh7ypggWpivEaTrM0n8QQzfkCRCNpevpkToF9</access.token>
-        <access.token.secret>T5pBjoHOmK90YfNKmBjrUngXAUhyyixIrlc0cEteI</access.token.secret>
-
+		<consumer.key>joywAPokONieyjIvhYUxuQ</consumer.key>
+		<consumer.secret>ZgPupfA69dgkHE0n1Vo9OUAhTwoCipXxBbg3Vy0H24</consumer.secret>
+		<access.token>1263823777-r4NUNDja5069zJ692xkMXB9mhqpujjddVatECQs</access.token>
+		<access.token.secret>UefBD2h8t41vWV5h7Hq4LGjEFqXQHGCPSbvrDN6AVlc</access.token.secret>
     </properties>
 
     <dependencies>
@@ -46,6 +44,12 @@
 		</dependency>
 
         <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.5.6</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-all</artifactId>
             <version>1.9.5</version>
@@ -53,12 +57,52 @@
         </dependency>
 
         <dependency>
+            <groupId>org.easytesting</groupId>
+            <artifactId>fest-assert</artifactId>
+            <version>1.4</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.dbunit</groupId>
+            <artifactId>dbunit</artifactId>
+            <version>2.4.9</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>eclipselink</artifactId>
+            <version>2.4.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derbyclient</artifactId>
+            <version>10.8.2.2</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derby</artifactId>
+            <version>10.8.2.2</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.6</version>
+        </dependency>
+
+        <dependency>
             <groupId>fr.univaix.iut.pokebattle</groupId>
             <artifactId>tuse-core</artifactId>
             <version>0.0.2-SNAPSHOT</version>
         </dependency>
-
     </dependencies>
+
     <repositories>
         <repository>
             <id>PokeBattleRepo</id>
@@ -78,22 +122,4 @@
 			</snapshots>
 		</repository>
     </repositories>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>1.2.1</version>
-                <configuration>
-                    <mainClass>fr.univaix.iut.pokebattle.TwitterBot</mainClass>
-                    <arguments>
-                        <argument>${consumer.key}</argument>
-                        <argument>${consumer.secret}</argument>
-                        <argument>${access.token}</argument>
-                        <argument>${access.token.secret}</argument>
-                    </arguments>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 </project>

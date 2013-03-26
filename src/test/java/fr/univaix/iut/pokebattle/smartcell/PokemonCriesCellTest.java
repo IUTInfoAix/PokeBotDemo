@@ -1,28 +1,27 @@
-package fr.univaix.iut.pokebattle.SmartCells;
+package fr.univaix.iut.pokebattle.smartcell;
 
-import static org.junit.Assert.assertEquals;
-
+import fr.univaix.iut.pokebattle.twitter.Tweet;
 import org.junit.Test;
 
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
-import fr.univaix.iut.pokebattle.Tweet;
-import fr.univaix.iut.pokebattle.smartcells.PokemonCriesCell;
+
+import static org.junit.Assert.assertEquals;
 
 public class PokemonCriesCellTest {
 
     PokemonCriesCell cell = new PokemonCriesCell();
     Twitter twitter = TwitterFactory.getSingleton();
-    
+
     @Test
     public void testSalut() {
-        assertEquals("@azaz Pika pika", cell.ask(new Tweet("azaz","Salut!")));
+        assertEquals("@nedseb Pika pika", cell.ask(new Tweet("nedseb", "Salut!")));
     }
 
     @Test
     public void testNotSalut() {
-        assertEquals("@azaz Pika pika", cell.ask(new Tweet("azaz","au revoir")));
+        assertEquals("@nedseb Pika pika", cell.ask(new Tweet("nedseb", "au revoir")));
     }
     
     @Test
