@@ -25,20 +25,21 @@ public class AttacksValidityCell implements SmartCell {
 			String[] alias2 = alias.split(" ");
 			String attaque = alias2[2];
 			attaque = attaque.substring(1, attaque.length()); // on retire le '#'
-			if (/* attaque = wrong */ )
-			{
-				String answer = "@" + question.getScreenName() + " o_O ? /cc " + alias2[5] 
-								    + alias2[6] + alias2[4];
-				return answer;
-			}
-			if (/* attaque = right */)
-			{
-				String answer = "@" + alias2[3] + " " + alias2[1] + alias2[2] 
-									+ alias2[4] + alias2[5] + "@" + question.getScreenName()
-									+ alias2[6];
-				return answer;
-			}
+//			if (/* attaque = wrong */ )
+//			{
+//				String answer = "@" + question.getScreenName() + " o_O ? /cc " + alias2[5] 
+//								    + alias2[6] + alias2[4];
+//				return answer;
+//			}
+//			if (/* attaque = right */)
+//			{
+//				String answer = "@" + alias2[3] + " " + alias2[1] + alias2[2] 
+//									+ alias2[4] + alias2[5] + "@" + question.getScreenName()
+//									+ alias2[6];
+//				return answer;
+//			}
 			
 		}
 		return null;
 	}
+}

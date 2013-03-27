@@ -10,12 +10,12 @@ public class OnlyAnswerAtOwnerCell implements SmartCell {
 		//pcreux: "@pikachuNyanNian #attack #foudre @bulbizare1"
 		//pikachuNyanNian: "@pcreux @nedseb is my owner"
 		String reponse = "";
-		if (/*Owner != Twitteur*/) {
-			reponse +=  "@" + question.getScreenName()
-					  + " " /* + Owner*/ + " is my owner";
-		}
-		else
-			/* Le pokemon répond normalement */
+//		if (/*Owner != Twitteur*/) {
+//			reponse +=  "@" + question.getScreenName()
+//					  + " " /* + Owner*/ + " is my owner";
+//		}
+//		else
+//			/* Le pokemon répond normalement */
 		
 		return reponse;
 	}
