@@ -49,10 +49,7 @@ public class PokemonCaptureCell implements SmartCell {
 				String arg2 = "";
 				String arg3 = "#pokebattle - #pokemon - Owner: " + own.getPrenom();
 				twitter.updateProfile(arg0, arg1, arg2, arg3);
-				
-				
-
-				
+						
 				em.getTransaction().begin();
 				em.persist(own);
 				em.getTransaction().commit();
