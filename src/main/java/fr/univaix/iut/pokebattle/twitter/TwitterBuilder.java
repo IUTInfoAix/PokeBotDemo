@@ -1,5 +1,6 @@
 package fr.univaix.iut.pokebattle.twitter;
 
+import fr.univaix.iut.pokebattle.tuse.Credentials;
 import twitter4j.Twitter;
 import twitter4j.TwitterFactory;
 import twitter4j.conf.ConfigurationBuilder;

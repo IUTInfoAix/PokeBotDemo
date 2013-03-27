@@ -21,19 +21,22 @@ import fr.univaix.iut.pokebattle.twitter.Tweet;
 public class PokemonCaptureCell implements SmartCell {
 
 	@Override
-	public String ask(Tweet question) throws IllegalStateException, TwitterException {	
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Pokemon");
-        EntityManager em = emf.createEntityManager();
-        
-		DAOFactory daof = new DAOFactory(em);
-		DAOOwner daoOwn = daof.createDAOOwner();
-		DAOPokemon daoPoke = daof.createDAOPokemon();
+	public String ask(Tweet question) throws IllegalStateException, TwitterException {
 		
-		String[] phrase = question.getText().split(" ");
-		Pokemon Poke = daoPoke.getByNom(phrase[0]);
-		Owner owner = daoOwn.getByPokemon(Poke);
-		
-		if ( question.getText().contains("pokeball")) {
+		if ( question.getText().contains("pokeball")) 
+		{
+			EntityManagerFactory emf = Persistence.createEntityManagerFactory("Pokemon");
+	        EntityManager em = emf.createEntityManager();
+	        
+			DAOFactory daof = new DAOFactory(em);
+			DAOOwner daoOwn = daof.createDAOOwner();
+			DAOPokemon daoPoke = daof.createDAOPokemon();
+			
+			String[] phrase = question.getText().split(" ");
+			Pokemon Poke = daoPoke.getByNom(phrase[0]);
+			Owner owner = daoOwn.getByPokemon(Poke);
+			
+			
 			if (owner == null) {
 				Owner own = new Owner();
 				
@@ -60,9 +63,9 @@ public class PokemonCaptureCell implements SmartCell {
 			{
 				return "@" + question.getScreenName() + " " + owner.getPrenom() + " is my owner !";
 			}
-		}
+		}//if contains pokeball
 		
 		return null;
-	}
+	}//ask()
 
 }

@@ -17,9 +17,8 @@ import fr.univaix.iut.pokebattle.twitter.Tweet;
 public class PokemonAttackCell implements SmartCell {
 
 		public String ask(Tweet question) throws IllegalStateException, TwitterException {	
-			
-		
-			
+			if ( question.getText().contains("#attack")) 
+			{
 				//Twitter twitter = TwitterFactory.getSingleton();
 				EntityManagerFactory emf = Persistence.createEntityManagerFactory("Pokemon");
 		        EntityManager em = emf.createEntityManager();
@@ -30,17 +29,8 @@ public class PokemonAttackCell implements SmartCell {
 				String[] phrase = question.getText().split(" ");
 				Pokemon Poke = daoPoke.getByNom(phrase[0]);
 				Owner owner = daoOwn.getByPokemon(Poke);
-				
-				if ( Poke.equals(null) )
-					return "Le pokemon n'existe pas dans la BD";
-				
-				if ( owner.equals(null) )
-					return "Le dresseur n'existe pas dans la BD";
-				
-
-					
-				if ( question.getText().contains("#attack")) 
-				{
+									
+	
 					if ( owner.getPrenom().equals("@" + question.getScreenName())) 
 					{
 						Poke = daoPoke.getByNom(phrase[3]);
@@ -61,9 +51,9 @@ public class PokemonAttackCell implements SmartCell {
 						return "@" + question.getScreenName() + " " + owner.getPrenom() + " is my owner";
 					}
 
-				}
-				return null;
+			}//if contains attack
+			return null;
 
-		}
+		}//ask ()
 
 }

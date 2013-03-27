@@ -18,23 +18,24 @@ import fr.univaix.iut.pokebattle.twitter.Tweet;
 public class PokemonOwnerCell implements SmartCell {
 
 	@Override
-	public String ask(Tweet question) throws IllegalStateException, TwitterException {	
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Pokemon");
-		EntityManager em = emf.createEntityManager();
+	public String ask(Tweet question) throws IllegalStateException, TwitterException {
 		
-		
-		DAOFactory daof = new DAOFactory(em);
-		DAOOwner daoOwner = daof.createDAOOwner();
-		
-		DAOPokemon daoPoke = daof.createDAOPokemon();
-		
-		String[] phrase = question.getText().split(" ");
-		Pokemon Poke = daoPoke.getByNom(phrase[0]);
-		
-		Owner owner = daoOwner.getByPokemon(Poke);
-		
-
-		if (question.getText().contains("owner")) {
+		if (question.getText().contains("owner")) 
+		{
+				
+			EntityManagerFactory emf = Persistence.createEntityManagerFactory("Pokemon");
+			EntityManager em = emf.createEntityManager();
+			
+			
+			DAOFactory daof = new DAOFactory(em);
+			DAOOwner daoOwner = daof.createDAOOwner();
+			
+			DAOPokemon daoPoke = daof.createDAOPokemon();
+			
+			String[] phrase = question.getText().split(" ");
+			Pokemon Poke = daoPoke.getByNom(phrase[0]);
+			
+			Owner owner = daoOwner.getByPokemon(Poke);
 			
 			if (owner != null) {
 				System.out.println("@" + question.getScreenName() + ' ' + owner.getPrenom() + " is my owner");

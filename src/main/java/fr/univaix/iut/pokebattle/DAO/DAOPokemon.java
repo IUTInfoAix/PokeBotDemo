@@ -1,4 +1,4 @@
-package fr.univaix.iut.pokebattle.DAO;
+ package fr.univaix.iut.pokebattle.DAO;
 
 import java.util.List;
 
@@ -25,10 +25,9 @@ public class DAOPokemon {
 			TypedQuery<Pokemon> query = entityManager.createNamedQuery(Pokemon.FIND_BY_NOM , Pokemon.class);
 			query.setParameter("nom", Nom);
 			return query.getSingleResult();
-			
 		}
 		
-		catch(java.util.NoSuchElementException Ex)
+		catch(Exception Ex)
 		{
 			return null;
 		}
@@ -46,7 +45,7 @@ public class DAOPokemon {
 			
 		}
 		
-		catch(java.util.NoSuchElementException Ex)
+		catch(Exception Ex)
 		{
 			return null;
 		}
@@ -81,7 +80,7 @@ public class DAOPokemon {
 			
 		}
 		
-		catch(java.util.NoSuchElementException Ex)
+		catch(Exception Ex)
 		{
 			return 0;
 		}
