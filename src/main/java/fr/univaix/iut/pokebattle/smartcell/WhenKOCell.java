@@ -18,12 +18,12 @@ public class WhenKOCell implements SmartCell {
 		
 			bulbizare1: "#KO /cc @viviane @nedseb @pcreux" */
 
-		String texte = tweet.getText();
-		String[] tabMots = texte.split(" ");
+		//String texte = tweet.getText();
+		//String[] tabMots = texte.split(" ");
 		
 		//if(tabMots[0] est un poké et que ses PV <= 0)
 		{	
-			String pokeKO = tabMots[0];
+			//String pokeKO = tabMots[0];
 			
 			String answer = "#KO /cc " /* + @JUGE + */+ " "
 					/* + "@DRESSEURVAINQUEUR" + "@PRORIOPOKEKO"*/ ;

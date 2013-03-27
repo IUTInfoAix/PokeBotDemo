@@ -1,6 +1,5 @@
 package fr.univaix.iut.progbd;
 
-import java.util.Collection;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -54,7 +53,7 @@ public class Main {
         Pokemon poke = em.find(Pokemon.class, "CHENIPAN_PKWEM");
         Owner own = poke.getOwner_poke();
         
-        System.out.println(own.getNom_owner() + " a capturé " + poke.getName());
+        //System.out.println(own.getNom_owner() + " a capturé " + poke.getName());
         
         em.close();
         emf.close();

@@ -1,6 +1,5 @@
 package fr.univaix.iut.progbd;
 
-import java.util.Collection;
 
 import javax.persistence.*;
 

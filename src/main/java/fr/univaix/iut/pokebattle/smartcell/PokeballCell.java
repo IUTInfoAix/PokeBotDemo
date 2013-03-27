@@ -26,7 +26,7 @@ public class PokeballCell implements SmartCell {
 	}
 
 	public void updateOwner(Tweet tweet){
-		String description = " - Owner: @" + tweet.getScreenName();
+		//String description = " - Owner: @" + tweet.getScreenName();
 		
 //		/**/.updateProfile(null,null,null,description);
 	}
