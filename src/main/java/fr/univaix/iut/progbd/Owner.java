@@ -64,9 +64,4 @@ public class Owner {
 		return "Owner [nom_owner=" + nom_owner + "]";
 	}
 
-
-
-
-
-  
 }
