@@ -12,7 +12,7 @@ import fr.univaix.iut.progbd.Pokemon;
  */
 public class PokemonCriesCell implements SmartCell {
 	
-	private EntityManagerFactory emf;
+	private EntityManagerFactory emf; 
 	private EntityManager em;
 
 	public PokemonCriesCell() {
@@ -26,18 +26,21 @@ public class PokemonCriesCell implements SmartCell {
             String[] alias = tweet.getText().split(" ");
         	String pokemon = alias[0].toUpperCase();
         	pokemon.substring(1, pokemon.length());
-        	
-        	em.getTransaction().begin();
+        
         	
         	Pokemon poke = em.find(Pokemon.class, "SALAMECHE_PKWEM");
         	System.out.println(poke);
+        	String s = poke.getCri();
+        	System.out.println(s);
+
+            
+        	String r = "@nedseb"+  " "+ poke.getCri();
         	
-        	em.getTransaction().commit();
         	
         	em.close();
             emf.close();
             
-        	return "@nedseb"+ " Sala sala";// + poke.getCri();
+            return r;
         }
         else
         	return null;
