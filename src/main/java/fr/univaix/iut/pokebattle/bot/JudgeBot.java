@@ -1,12 +1,9 @@
 package fr.univaix.iut.pokebattle.bot;
 
-import com.google.common.collect.Lists;
+import twitter4j.TwitterException;
+import fr.univaix.iut.pokebattle.smartcell.JudgeBotPVCell;
 import fr.univaix.iut.pokebattle.smartcell.SmartCell;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
-
-import java.util.List;
-
-import twitter4j.TwitterException;
 
 
 public class JudgeBot implements Bot {
@@ -14,7 +11,9 @@ public class JudgeBot implements Bot {
      * List of smartcell the questions go through to
      * find an answer.
      */
-    final List<SmartCell> smartCells = Lists.newArrayList();
+    final SmartCell[] smartCells = new SmartCell[]{
+    		new JudgeBotPVCell(),
+    };
 
     /**
      * Ask something to Bot, it will respond to you.

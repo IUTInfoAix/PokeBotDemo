@@ -27,7 +27,8 @@ public class PokemonCriesCellTest {
     @Test
     public void testNom () throws IllegalStateException, TwitterException
     {
-    	System.out.println(twitter.getScreenName());
+    	Tweet Twt = new Tweet("nedseb", "au revoir");
+    	System.out.println(Twt.getScreenName());
     }
 
 }

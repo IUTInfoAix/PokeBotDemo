@@ -12,6 +12,7 @@ CREATE TABLE OWNER
 
 insert into OWNER VALUES ("@CloudDeLuna", "@GwenGoupix");
 insert into OWNER VALUES ("@cybsip", "@Smogogo13");
+insert into OWNER VALUES ("@cybsip", "@Dracaufeu13");
 
 CREATE TABLE POKEMON
    (    NOM VARCHAR(20),
@@ -30,3 +31,4 @@ CREATE TABLE POKEMON
  
 INSERT INTO POKEMON VALUES ( "@GwenGoupix" , "Goupix" , 100 , "N.1" , "XP.0" , 0 , 0 , 0 , 0 , 0 );
 INSERT INTO POKEMON VALUES ( "@Smogogo13" , "Smogogo" , 100 , "N.1" , "XP.0" , 0 , 0 , 0 , 0 , 0 );
+INSERT INTO POKEMON VALUES ( "@Dracaufeu13" , "Dracaufeu" , 100 , "N.1" , "XP.0" , 0 , 0 , 0 , 0 , 0 );
