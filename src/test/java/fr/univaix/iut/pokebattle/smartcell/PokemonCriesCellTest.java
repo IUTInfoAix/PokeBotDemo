@@ -14,7 +14,7 @@ public class PokemonCriesCellTest {
     
     @Test
     public void testSalut() {
-        assertEquals("@nedseb Sala sala", cell.ask(new Tweet("nedseb", "@Salameche_PKWEM Salut!")));
+       assertEquals("@nedseb Sala sala", cell.ask(new Tweet("nedseb", "@Salameche_PKWEM Salut!")));
     }
 
     @Test

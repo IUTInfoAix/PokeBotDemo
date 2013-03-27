@@ -50,8 +50,12 @@ public class Main {
         em.close();
         emf.close();*/
         
-        Pokemon poke = em.find(Pokemon.class, "CHENIPAN_PKWEM");
-        Owner own = poke.getOwner_poke();
+
+    	Pokemon poke = em.find(Pokemon.class, "SALAMECHE_PKWEM");
+    	System.out.println(poke);
+        Pokemon poke1 = em.find(Pokemon.class, "CHENIPAN_PKWEM");
+        Owner own = poke1.getOwner_poke();
+        System.out.println(own);
         
         //System.out.println(own.getNom_owner() + " a capturé " + poke.getName());
         
