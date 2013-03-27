@@ -56,4 +56,13 @@ public class Credentials {
         credentials.setTokenSecret(properties.getProperty("oauth.accessTokenSecret"));
         return credentials;
     }
+
+	@Override
+	public String toString() {
+		return "Credentials [consumerKey=" + consumerKey + ", consumerSecret="
+				+ consumerSecret + ", token=" + token + ", tokenSecret="
+				+ tokenSecret + "]";
+	}
+    
+    
 }

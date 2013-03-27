@@ -4,6 +4,7 @@ import com.twitter.hbc.httpclient.ControlStreamException;
 import fr.univaix.iut.pokebattle.bot.Bot;
 import fr.univaix.iut.pokebattle.tuse.TwitterUserStreamEasy;
 import twitter4j.Twitter;
+import twitter4j.TwitterException;
 
 import java.io.IOException;
 
@@ -16,7 +17,7 @@ public class TwitterBot {
         this.twitterUserStreamEasy = new TwitterUserStreamEasyBuilder(twitter, bot).build();
     }
 
-    public void startBot() throws InterruptedException, ControlStreamException, IOException {
+    public void startBot() throws InterruptedException, ControlStreamException, IOException, TwitterException {
         twitterUserStreamEasy.oauth();
     }
 

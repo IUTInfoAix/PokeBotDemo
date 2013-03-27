@@ -8,6 +8,8 @@ import fr.univaix.iut.pokebattle.twitter.TwitterBot;
 import java.io.IOException;
 import java.io.InputStream;
 
+import twitter4j.TwitterException;
+
 public class BotRunner {
     static public void runBot(Bot bot, String credentialsFileName) {
         try {
@@ -21,7 +23,9 @@ public class BotRunner {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        } catch (TwitterException e) {
+			e.printStackTrace();
+		}
     }
 
     static InputStream getResourceAsStream(String fileName) {
