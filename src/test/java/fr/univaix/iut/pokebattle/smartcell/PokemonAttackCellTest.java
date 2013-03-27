@@ -16,9 +16,9 @@ public class PokemonAttackCellTest {
 	@Test
 	public void testAttack() throws IllegalStateException, TwitterException {		
 		assertEquals(
-				"J'attaque @GwenGoupix du dresseur @CloudDeLuna avec #charge!," +
-				" sur ordre de mon dresseur qui est @cybsip", (cell.ask(new Tweet("cybsip",
-				"@Smogogo13 #attack #charge @GwenGoupix /cc @CloudDeLuna"))));
+				"@GwenGoupix #attack #charge /cc @CloudDeLuna @cybsip @zaza13", (cell.ask(new Tweet("cybsip",
+				"@Smogogo13 #attack #charge @GwenGoupix /cc @CloudDeLuna @zaza13"))));
 	}
-
+//	pcreux: "@bulbizare1 #attack #charge @pikachuNyanNian /cc @nedseb"
+	//	bulbizare1: "@pikachuNyanNian #attack #charge /cc @nedseb @pcreux"
 }

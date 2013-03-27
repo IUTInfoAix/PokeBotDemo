@@ -42,9 +42,8 @@ public class PokemonAttackCell implements SmartCell {
 						em.getTransaction().commit();
 						
 						
-				        return "J'attaque " + phrase[3] + " du dresseur " + phrase[5] + " avec " + phrase [2] 
-				        		+ "!"  + ", sur ordre de mon dresseur qui est " + owner.getPrenom();  
-						//return "@" + question.getScreenName() + ' ' + "@" + question.getScreenName() + "is my owner";
+				        return phrase[3] + " #attack " + phrase[2] + " /cc " + phrase[5] + " " + owner.getPrenom() + " " + phrase[6];  
+						//"@pikachuNyanNian #attack #charge /cc @nedseb @pcreux"
 					}
 					else
 					{
