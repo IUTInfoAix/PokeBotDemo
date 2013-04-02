@@ -11,10 +11,11 @@ import fr.univaix.iut.pokebattle.twitter.Tweet;
 
 public class PokemonFeatureCell implements SmartCell {
 	
-	  public String ask(Tweet question) {
+	  public String ask(Tweet question) 
+	  {
 		  	  
-	  		if ( question.getText().contains("#stat")) 
-	  		{
+  		if ( question.getText().contains("#stat")) 
+  		{
 	  			
 	  		  EntityManagerFactory emf = Persistence.createEntityManagerFactory("Pokemon");
 	  	      EntityManager em = emf.createEntityManager();
@@ -23,56 +24,56 @@ public class PokemonFeatureCell implements SmartCell {
 	  		  DAOPokemon daoPoke = daof.createDAOPokemon();
 			  Pokemon Poke = daoPoke.getByNom(phrase[0]);
 
-			  if ( question.getText().contains("#race")) 
+			  if( question.getText().contains("#race")) 
 		  	  {
 		  	   	return "@" + question.getScreenName() + " #race = " + Poke.getRace() ;
 		  	  }
 			  
-		  	  if ( question.getText().contains("#level")) 
+		  	  else if( question.getText().contains("#level")) 
 		  	  {
 		  	   	return "@" + question.getScreenName() + " #level = " + Poke.getNiveau() ;
 		  	  }
 		  		
-		  	  if ( question.getText().contains("#XP")) 
+		  	  else if( question.getText().contains("#XP")) 
 		  	  {
 		  			return "@" + question.getScreenName() + " #XP = " + Poke.getXP() ;
 		  	  }
 		  		
-		  	  if ( question.getText().contains("#PV")) 
+		  	  else if( question.getText().contains("#PV")) 
 		  	  {
 		  			return "@" + question.getScreenName() + " #PV = " + Poke.getPV() + "/100";
 
 		  	  }
-		  	  if ( question.getText().contains("#ATT")) 
-		  	  {
-		  			return "@" + question.getScreenName() + " #ATT = " + Poke.getAttack();
-
-		  	  }
-		  	  if ( question.getText().contains("#DEF")) 
-		  	  {
-		  			return "@" + question.getScreenName() + " #DEF = " + Poke.getDefense();
-
-		  	  }
-		  	  if ( question.getText().contains("#ATTSPE")) 
+		  	  
+		  	  else if( question.getText().contains("#ATTSPE")) 
 		  	  {
 		  			return "@" + question.getScreenName() + " #ATTSPE = " + Poke.getAttackSpecial();
 
 		  	  }
-		  	  if ( question.getText().contains("#DEFSPE")) 
+		  	  
+		  	  else if( question.getText().contains("#DEFSPE")) 
 		  	  {
-		  			return "@" + question.getScreenName() + " #DEFSPE= " + Poke.getDefenseSpecial();
+		  			return "@" + question.getScreenName() + " #DEFSPE = " + Poke.getDefenseSpecial();
 
 		  	  }
-		  	  if ( question.getText().contains("#VIT")) 
+		  	  
+		  	  else if( question.getText().contains("#ATT")) 
 		  	  {
-		  			return "@" + question.getScreenName() + " #VIT= " + Poke.getSpeed();
+		  			return "@" + question.getScreenName() + " #ATT = " + Poke.getAttack();
 
 		  	  }
-		  	 
-	  		}
-	  
+		  	  else if( question.getText().contains("#DEF")) 
+		  	  {
+		  			return "@" + question.getScreenName() + " #DEF = " + Poke.getDefense();
+
+		  	  }
+
+		  	  else if( question.getText().contains("#VIT")) 
+		  	  {
+		  			return "@" + question.getScreenName() + " #VIT = " + Poke.getSpeed();
+
+		  	  }
+  		}
 	 	return null;
-	  	
-	 }
-	  
-}	  
+	 }//ask()  
+}//class

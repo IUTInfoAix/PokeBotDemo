@@ -2,22 +2,11 @@ package fr.univaix.iut.pokebattle.smartcell;
 
 import static org.junit.Assert.assertEquals;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
 import org.junit.Test;
 
 import twitter4j.TwitterException;
-import fr.univaix.iut.pokebattle.DAO.DAOFactory;
-import fr.univaix.iut.pokebattle.DAO.DAOOwner;
-import fr.univaix.iut.pokebattle.beans.Owner;
-import fr.univaix.iut.pokebattle.beans.Pokemon;
 import fr.univaix.iut.pokebattle.smartcell.PokemonOwnerCell;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
-
-
-
     
 public class PokemonOwnerCellTest {
 
