@@ -34,8 +34,10 @@ public class PokemonCriesCell implements SmartCell {
          	
         	Pokemon poke = dao.getById(pokemon);
         	String cri = poke.getCri();
+        	System.out.println(cri);
         	
-        	String r = "@nedseb"+  " "+ cri;
+        	
+        	String r = "@" + tweet.getScreenName() +  " " + cri;
 
         	
         	em.close();
