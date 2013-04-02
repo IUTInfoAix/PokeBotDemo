@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 import fr.univaix.iut.pokebattle.beans.Attacks;
+import fr.univaix.iut.pokebattle.beans.Pokemon;
 
 
 public class DAOAttacks {
@@ -16,11 +17,11 @@ public class DAOAttacks {
 		this.entityManager = em;
 	}
 	
-	public List<Attacks> findByPokemon ( String Pokemon ){
+	public List<Attacks> findByPokemon ( Pokemon pokemon ){
 		try{	
 			
 			TypedQuery<Attacks> query = entityManager.createNamedQuery(Attacks.FIND_BY_POKE , Attacks.class);
-			query.setParameter("pokemon", Pokemon);
+			query.setParameter("pokemon", pokemon);
 			return query.getResultList();
 			
 		}

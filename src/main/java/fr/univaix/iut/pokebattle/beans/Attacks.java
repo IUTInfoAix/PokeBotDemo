@@ -40,8 +40,48 @@ public class Attacks implements Serializable{
 	
 	public Attacks() {
 		super();
-	}	
-	
+	}
+
+	public Pokemon getPokemon() {
+		return Pokemon;
+	}
+
+	public void setPokemon(Pokemon pokemon) {
+		Pokemon = pokemon;
+	}
+
+	public String getAttack() {
+		return Attack;
+	}
+
+	public void setAttack(String attack) {
+		Attack = attack;
+	}
+
+	public String getNiveau() {
+		return Niveau;
+	}
+
+	public void setNiveau(String niveau) {
+		Niveau = niveau;
+	}
+
+	public String getPuissance() {
+		return Puissance;
+	}
+
+	public void setPuissance(String puissance) {
+		Puissance = puissance;
+	}
+
+	public String getPrecision() {
+		return Precision;
+	}
+
+	public void setPrecision(String precision) {
+		Precision = precision;
+	}
+
 	public String getPP() {
 		return PP;
 	}
@@ -50,23 +90,70 @@ public class Attacks implements Serializable{
 		PP = pP;
 	}
 
-	public Pokemon getPokemon() {
-		return Pokemon;
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((Attack == null) ? 0 : Attack.hashCode());
+		result = prime * result + ((Niveau == null) ? 0 : Niveau.hashCode());
+		result = prime * result + ((PP == null) ? 0 : PP.hashCode());
+		result = prime * result + ((Pokemon == null) ? 0 : Pokemon.hashCode());
+		result = prime * result
+				+ ((Precision == null) ? 0 : Precision.hashCode());
+		result = prime * result
+				+ ((Puissance == null) ? 0 : Puissance.hashCode());
+		return result;
 	}
 
-	public String getAttack() {
-		return Attack;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Attacks other = (Attacks) obj;
+		if (Attack == null) {
+			if (other.Attack != null)
+				return false;
+		} else if (!Attack.equals(other.Attack))
+			return false;
+		if (Niveau == null) {
+			if (other.Niveau != null)
+				return false;
+		} else if (!Niveau.equals(other.Niveau))
+			return false;
+		if (PP == null) {
+			if (other.PP != null)
+				return false;
+		} else if (!PP.equals(other.PP))
+			return false;
+		if (Pokemon == null) {
+			if (other.Pokemon != null)
+				return false;
+		} else if (!Pokemon.equals(other.Pokemon))
+			return false;
+		if (Precision == null) {
+			if (other.Precision != null)
+				return false;
+		} else if (!Precision.equals(other.Precision))
+			return false;
+		if (Puissance == null) {
+			if (other.Puissance != null)
+				return false;
+		} else if (!Puissance.equals(other.Puissance))
+			return false;
+		return true;
 	}
 
-	public String getNiveau() {
-		return Niveau;
+	@Override
+	public String toString() {
+		return "Attacks [Pokemon=" + Pokemon.getNom() + ", Attack=" + Attack
+				+ ", Niveau=" + Niveau + ", Puissance=" + Puissance
+				+ ", Precision=" + Precision + ", PP=" + PP + "]\n";
 	}
-
-	public String getPuissance() {
-		return Puissance;
-	}
-
-	public String getPrecision() {
-		return Precision;
-	}
+	
+	
+	
 }

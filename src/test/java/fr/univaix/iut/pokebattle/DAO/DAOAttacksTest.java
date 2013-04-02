@@ -1,31 +1,62 @@
-package fr.univaix.iut.pokebattle.DAO;
+/*package fr.univaix.iut.pokebattle.DAO;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 import org.junit.Test;
 
-import scala.App;
-
-import com.google.gson.Gson;
-
+import fr.univaix.iut.pokebattle.beans.Attacks;
+import fr.univaix.iut.pokebattle.beans.DataObjectAttack;
 import fr.univaix.iut.pokebattle.beans.DataObjectPokemon;
+import fr.univaix.iut.pokebattle.beans.Pokedex;
+import fr.univaix.iut.pokebattle.beans.Pokemon;
 
 public class DAOAttacksTest {
 
 	@Test
 	public void test() {
 		
-        Gson gson = new Gson();
+        Pokedex pok = Pokedex.getInstance();
 
-        BufferedReader br = new BufferedReader(new InputStreamReader(
-        									App.class.getClassLoader().getResourceAsStream("pokedex.json")));
+        DataObjectPokemon[] pokeListe = pok.getData();
         
-        //convert the json string back to object
-        DataObjectPokemon[] pokeObj = gson.fromJson(br, DataObjectPokemon[].class);
-        for (DataObjectPokemon i : pokeObj)
-        	if (i.getNom().equals("Goupix"))
-        		System.out.println(i);
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Pokemon");
+        EntityManager em = emf.createEntityManager();
+        
+		DAOFactory daof = new DAOFactory(em);
+		DAOPokemon daoPoke = daof.createDAOPokemon();
+		
+		Pokemon pokName = daoPoke.getByNom("@Smogogo13");
+		//Pokemon pokName = daoPoke.getByNom("@Dracaufeu13");
+		//Pokemon pokName = daoPoke.getByNom("@GwenGoupix");
+        
+		em.getTransaction().begin();
+		
+        for (DataObjectPokemon j : pokeListe)
+        {
+        	if (pokName.getRace().equals(j.getNom()))
+        	{
+	        	DataObjectAttack[] listesAtt = j.getAttaques();
+		        for (DataObjectAttack i : listesAtt)
+		        {
+		        	Attacks att = new Attacks();
+		        	
+		        	att.setPokemon(pokName);
+		        	att.setAttack(i.getNom());
+		        	att.setNiveau(i.getNiveau());
+		        	att.setPP(i.getPp());
+		        	att.setPrecision(i.getPrecision());
+		        	att.setPuissance(i.getPuissance());
+		        	
+		        	em.persist(att);
+		        	
+		        	System.out.print(att);
+		        }
+        	}
+        }
+        
+        em.getTransaction().commit();
 	}
 
-}
+}*/
