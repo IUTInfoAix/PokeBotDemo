@@ -17,5 +17,9 @@ public class DAOFactory {
 	public DAOPokemon createDAOPokemon() {
 		return new DAOPokemon(entityManager);
 	}
+	
+	public DAOCombat createDAOCombat() {
+		return new DAOCombat(entityManager);
+	}
 
 }

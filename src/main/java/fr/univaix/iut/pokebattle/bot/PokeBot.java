@@ -5,6 +5,7 @@ import fr.univaix.iut.pokebattle.smartcell.PokemonAttackCell;
 import fr.univaix.iut.pokebattle.smartcell.PokemonCaptureCell;
 import fr.univaix.iut.pokebattle.smartcell.PokemonCriesCell;
 import fr.univaix.iut.pokebattle.smartcell.PokemonFeatureCell;
+import fr.univaix.iut.pokebattle.smartcell.PokemonKOCell;
 import fr.univaix.iut.pokebattle.smartcell.PokemonOwnerCell;
 import fr.univaix.iut.pokebattle.smartcell.SmartCell;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
@@ -21,6 +22,7 @@ public class PokeBot implements Bot {
     		new PokemonCaptureCell(),
             new PokemonOwnerCell(),
             new PokemonFeatureCell(),
+            new PokemonKOCell(),
             new PokemonCriesCell(),
     };
 
