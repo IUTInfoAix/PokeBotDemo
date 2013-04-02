@@ -35,6 +35,7 @@ public class NoOwnerCatchCell implements SmartCell {
          	// check owner exist
          	DAOPokemonJPA dao = new DAOPokemonJPA(em);
          	Pokemon poke = dao.getById(pokemon);
+         	System.out.println("tests");
          	String pokeOwner = poke.getOwner_poke().getNom_owner();
          	System.out.println("Qui est lowner ?" + pokeOwner);
 			//check good owner
@@ -48,6 +49,7 @@ public class NoOwnerCatchCell implements SmartCell {
 			}
 			else 
 			{
+				System.out.println("Aucun Owner");
 				poke.getOwner_poke().setNom_owner(ownerAsk);
 				String answer = "@" + ownerAsk + " @" + ownerAsk + " is my owner";
 				System.out.println("Nouvel owner :" + answer);
