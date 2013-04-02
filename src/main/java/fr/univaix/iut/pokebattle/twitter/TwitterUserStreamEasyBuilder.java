@@ -1,6 +1,7 @@
 package fr.univaix.iut.pokebattle.twitter;
 
 import fr.univaix.iut.pokebattle.bot.Bot;
+import fr.univaix.iut.pokebattle.tuse.Credentials;
 import fr.univaix.iut.pokebattle.tuse.TwitterUserStreamEasy;
 import fr.univaix.iut.pokebattle.tuse.UserStreamAdapter;
 import org.slf4j.Logger;
@@ -12,10 +13,12 @@ import twitter4j.UserStreamListener;
 
 public class TwitterUserStreamEasyBuilder {
     private final static Logger logger = LoggerFactory.getLogger(TwitterBot.class);
+    private Credentials credentials;
     private Twitter twitter;
-    final Bot bot;
+    private Bot bot;
 
-    public TwitterUserStreamEasyBuilder(Twitter twitter, final Bot bot) {
+    public TwitterUserStreamEasyBuilder(Credentials credentials, Twitter twitter, Bot bot) {
+        this.credentials = credentials;
         this.twitter = twitter;
         this.bot = bot;
     }
@@ -32,7 +35,7 @@ public class TwitterUserStreamEasyBuilder {
                 }
             }
         };
-        return new TwitterUserStreamEasy(listener);
+        return new TwitterUserStreamEasy(listener, credentials);
     }
 
     private void processNewQuestion(Status status, Bot bot) throws TwitterException {

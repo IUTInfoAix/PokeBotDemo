@@ -9,17 +9,19 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class PokemonCriesCellTest {
-
-    PokemonCriesCell cell = new PokemonCriesCell();
-    
+	
     @Test
     public void testSalut() {
-       assertEquals("@nedseb Sala sala", cell.ask(new Tweet("nedseb", "@Salameche_PKWEM Salut!")));
+    	PokemonCriesCell cell = new PokemonCriesCell();
+    	
+    	assertEquals("@nedseb Pika pika", cell.ask(new Tweet("nedseb", "@PIKACHU_PKWEM Salut!")));
     }
 
     @Test
     public void testNotSalut() {
-        assertEquals("@nedseb Sala sala", cell.ask(new Tweet("nedseb", "@Salameche_PKWEM au revoir")));
+    	PokemonCriesCell cell = new PokemonCriesCell();
+    	
+        assertEquals("@nedseb Pika pika", cell.ask(new Tweet("nedseb", "@PIKACHU_PKWEM au revoir")));
     }
     
 

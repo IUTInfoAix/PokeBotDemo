@@ -5,6 +5,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import fr.univaix.iut.pokebattle.twitter.Tweet;
+import fr.univaix.iut.progbd.DAOPokemonJPA;
 import fr.univaix.iut.progbd.Pokemon;
 
 /**
@@ -23,19 +24,19 @@ public class PokemonCriesCell implements SmartCell {
     public String ask(Tweet tweet) {
         if (tweet.getScreenName() != null){
             
-            String[] alias = tweet.getText().split(" ");
-        	String pokemon = alias[0].toUpperCase();
-        	pokemon.substring(1, pokemon.length());
-        
+        	DAOPokemonJPA dao = new DAOPokemonJPA(em);
         	
-        	Pokemon poke = em.find(Pokemon.class, "SALAMECHE_PKWEM");
-        	System.out.println(poke);
-        	String s = poke.getCri();
-        	System.out.println(s);
+        	// Contains ?
+        	String[] alias = tweet.getText().split(" ");
+         	String pokemon = alias[0].toUpperCase();
+         	pokemon = pokemon.substring(1, pokemon.length());
 
-            
-        	String r = "@nedseb"+  " "+ poke.getCri();
+         	
+        	Pokemon poke = dao.getById(pokemon);
+        	String cri = poke.getCri();
         	
+        	String r = "@nedseb"+  " "+ cri;
+
         	
         	em.close();
             emf.close();

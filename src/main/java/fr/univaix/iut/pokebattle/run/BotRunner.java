@@ -2,13 +2,11 @@ package fr.univaix.iut.pokebattle.run;
 
 import com.twitter.hbc.httpclient.ControlStreamException;
 import fr.univaix.iut.pokebattle.bot.Bot;
-import fr.univaix.iut.pokebattle.twitter.Credentials;
+import fr.univaix.iut.pokebattle.tuse.Credentials;
 import fr.univaix.iut.pokebattle.twitter.TwitterBot;
 
 import java.io.IOException;
 import java.io.InputStream;
-
-import twitter4j.TwitterException;
 
 public class BotRunner {
     static public void runBot(Bot bot, String credentialsFileName) {
@@ -23,9 +21,7 @@ public class BotRunner {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (TwitterException e) {
-			e.printStackTrace();
-		}
+        }
     }
 
     static InputStream getResourceAsStream(String fileName) {

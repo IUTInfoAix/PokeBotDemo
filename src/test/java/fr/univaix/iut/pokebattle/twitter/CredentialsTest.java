@@ -3,7 +3,7 @@ package fr.univaix.iut.pokebattle.twitter;
 import org.junit.Test;
 
 import java.io.InputStream;
-
+import fr.univaix.iut.pokebattle.tuse.Credentials;
 import static org.fest.assertions.Assertions.assertThat;
 
 public class CredentialsTest {
