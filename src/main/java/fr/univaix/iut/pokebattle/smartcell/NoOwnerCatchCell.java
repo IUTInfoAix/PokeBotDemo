@@ -6,6 +6,7 @@ import javax.persistence.Persistence;
 
 import fr.univaix.iut.pokebattle.twitter.Tweet;
 import fr.univaix.iut.progbd.DAOPokemonJPA;
+import fr.univaix.iut.progbd.Owner;
 import fr.univaix.iut.progbd.Pokemon;
 
 public class NoOwnerCatchCell implements SmartCell {
@@ -36,7 +37,7 @@ public class NoOwnerCatchCell implements SmartCell {
          	DAOPokemonJPA dao = new DAOPokemonJPA(em);
          	Pokemon poke = dao.getById(pokemon);
          	System.out.println("tests");
-         	String pokeOwner = poke.getOwner_poke().getNom_owner();
+         	Owner pokeOwner = poke.getOwner_poke();
          	System.out.println("Qui est lowner ?" + pokeOwner);
 			//check good owner
 			if( pokeOwner != null )
@@ -50,6 +51,12 @@ public class NoOwnerCatchCell implements SmartCell {
 			else 
 			{
 				System.out.println("Aucun Owner");
+				
+				// Pseudo-code :
+				// DAOOwner dao = new DAOOwaner(em)
+				// Owner newOwner = dao.getById(owernAsk);
+				// poke.setOwner(newOwner);
+				
 				poke.getOwner_poke().setNom_owner(ownerAsk);
 				String answer = "@" + ownerAsk + " @" + ownerAsk + " is my owner";
 				System.out.println("Nouvel owner :" + answer);
