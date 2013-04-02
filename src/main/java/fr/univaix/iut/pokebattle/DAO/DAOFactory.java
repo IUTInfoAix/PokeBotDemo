@@ -17,5 +17,9 @@ public class DAOFactory {
 	public DAOPokemon createDAOPokemon() {
 		return new DAOPokemon(entityManager);
 	}
+	
+	public DAOAttacks createDAOAttacks() {
+		return new DAOAttacks(entityManager);
+	}
 
 }
