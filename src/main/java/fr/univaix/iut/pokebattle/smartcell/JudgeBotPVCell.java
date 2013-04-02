@@ -32,10 +32,17 @@ public class JudgeBotPVCell implements SmartCell{
 			
 			if (phrase[3].contains("@") )
 			{
-				return null;
+				return "salut";
 			}
 			else 
 			{
+				
+				int PVPoke = Poke.getPV();
+				Poke.setPV(PVPoke-10);
+				em.getTransaction().begin();
+				em.persist(Poke);
+				em.getTransaction().commit();
+				
 				return phrase[0] + " -10pv /cc " + owner.getPrenom();
 			}
 			
