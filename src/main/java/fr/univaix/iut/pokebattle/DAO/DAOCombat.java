@@ -2,6 +2,7 @@ package fr.univaix.iut.pokebattle.DAO;
 
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
 import fr.univaix.iut.pokebattle.beans.Combat;
@@ -30,6 +31,28 @@ public class DAOCombat {
 		catch (java.util.NoSuchElementException Exc)
 		{
 			return null;
+		}
+	}
+	
+	public Pokemon insert (Pokemon pokemon)
+	{
+		EntityTransaction entT = entityManager.getTransaction();
+		entT.begin();
+		entityManager.persist(pokemon);
+		entT.commit();
+		return entityManager.find(Pokemon.class, pokemon.getNom());
+	}
+	
+	public boolean delete (Pokemon pokemon)
+	{
+		try {
+			EntityTransaction entT = entityManager.getTransaction();
+			entT.begin();
+			entityManager.remove(pokemon);
+			entT.commit();
+			return true;
+		} catch (Exception e) {
+			return false;
 		}
 	}
 
