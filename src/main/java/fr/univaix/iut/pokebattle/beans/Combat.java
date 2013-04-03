@@ -47,7 +47,6 @@ public class Combat implements Serializable {
 	
 	
 	public Combat(Pokemon poke_1, Owner owner_1, Pokemon poke_2, Owner owner_2) {
-		super();
 		Poke_1 = poke_1;
 		Owner_1 = owner_1;
 		Poke_2 = poke_2;
