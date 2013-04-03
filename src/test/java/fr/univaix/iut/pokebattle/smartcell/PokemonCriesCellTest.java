@@ -15,12 +15,12 @@ public class PokemonCriesCellTest {
     Twitter twitter = TwitterFactory.getSingleton();
 
     @Test
-    public void testSalut() {
+    public void testSalut() throws TwitterException {
         assertEquals("@nedseb Pika pika", cell.ask(new Tweet("nedseb", "Salut!")));
     }
 
     @Test
-    public void testNotSalut() {
+    public void testNotSalut() throws TwitterException {
         assertEquals("@nedseb Pika pika", cell.ask(new Tweet("nedseb", "au revoir")));
     }
     
