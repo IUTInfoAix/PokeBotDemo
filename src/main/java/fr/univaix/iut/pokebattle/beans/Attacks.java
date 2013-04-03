@@ -37,7 +37,16 @@ public class Attacks implements Serializable{
 	@Column( name = "PRC")
 	private String Precision;
 	private String PP;
+	private String PPMAX;
 	
+	public String getPPMAX() {
+		return PPMAX;
+	}
+
+	public void setPPMAX(String pPMAX) {
+		PPMAX = pPMAX;
+	}
+
 	public Attacks() {
 		super();
 	}
@@ -97,6 +106,7 @@ public class Attacks implements Serializable{
 		result = prime * result + ((Attack == null) ? 0 : Attack.hashCode());
 		result = prime * result + ((Niveau == null) ? 0 : Niveau.hashCode());
 		result = prime * result + ((PP == null) ? 0 : PP.hashCode());
+		result = prime * result + ((PPMAX == null) ? 0 : PPMAX.hashCode());
 		result = prime * result + ((Pokemon == null) ? 0 : Pokemon.hashCode());
 		result = prime * result
 				+ ((Precision == null) ? 0 : Precision.hashCode());
@@ -129,6 +139,11 @@ public class Attacks implements Serializable{
 				return false;
 		} else if (!PP.equals(other.PP))
 			return false;
+		if (PPMAX == null) {
+			if (other.PPMAX != null)
+				return false;
+		} else if (!PPMAX.equals(other.PPMAX))
+			return false;
 		if (Pokemon == null) {
 			if (other.Pokemon != null)
 				return false;
@@ -151,7 +166,8 @@ public class Attacks implements Serializable{
 	public String toString() {
 		return "Attacks [Pokemon=" + Pokemon.getNom() + ", Attack=" + Attack
 				+ ", Niveau=" + Niveau + ", Puissance=" + Puissance
-				+ ", Precision=" + Precision + ", PP=" + PP + "]\n";
+				+ ", Precision=" + Precision + ", PP=" + PP + ", PPMAX="
+				+ PPMAX + "]";
 	}
 	
 	

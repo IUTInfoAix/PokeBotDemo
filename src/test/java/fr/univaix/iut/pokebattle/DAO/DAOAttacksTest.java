@@ -46,6 +46,7 @@ public class DAOAttacksTest {
 		        	att.setAttack(i.getNom());
 		        	att.setNiveau(i.getNiveau());
 		        	att.setPP(i.getPp());
+		        	att.setPPMAX(i.getPp());
 		        	att.setPrecision(i.getPrecision());
 		        	att.setPuissance(i.getPuissance());
 		        	
