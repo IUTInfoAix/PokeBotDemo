@@ -5,6 +5,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import fr.univaix.iut.pokebattle.twitter.Tweet;
+import fr.univaix.iut.progbd.DAOOwner;
+import fr.univaix.iut.progbd.DAOOwnerJPA;
 import fr.univaix.iut.progbd.DAOPokemonJPA;
 import fr.univaix.iut.progbd.Owner;
 import fr.univaix.iut.progbd.Pokemon;
@@ -38,11 +40,13 @@ public class NoOwnerCatchCell implements SmartCell {
          	Pokemon poke = dao.getById(pokemon);
          	System.out.println("tests");
          	Owner pokeOwner = poke.getOwner_poke();
+
          	System.out.println("Qui est lowner ?" + pokeOwner);
 			//check good owner
 			if( pokeOwner != null )
 			{
-				String answer ="@" + ownerAsk + " @" + pokeOwner + " is my owner";
+				String pokeOwnerName = pokeOwner.getNom_owner();
+				String answer ="@" + ownerAsk + " @" + pokeOwnerName + " is my owner";
 				System.out.println("Owner :" + answer);
 				em.close();
 	            emf.close();
@@ -54,11 +58,26 @@ public class NoOwnerCatchCell implements SmartCell {
 				
 				// Pseudo-code :
 				// DAOOwner dao = new DAOOwaner(em)
+				
 				// Owner newOwner = dao.getById(owernAsk);
+				// if newOwner == null
+				//   newOwner = dao.create
 				// poke.setOwner(newOwner);
 				
-				poke.getOwner_poke().setNom_owner(ownerAsk);
-				String answer = "@" + ownerAsk + " @" + ownerAsk + " is my owner";
+				DAOOwnerJPA daoOwner = new DAOOwnerJPA(em);
+				Owner ownerExist = em.find(Owner.class, ownerAsk);
+				if(ownerExist == null)
+				{
+					Owner own = new Owner(ownerAsk);
+					daoOwner.insert(own);
+					poke.setOwner_poke(own);
+				}
+				else
+					poke.setOwner_poke(ownerExist);
+
+		
+				String pokeOwn = poke.getOwner_poke().getNom_owner();
+				String answer = "@" + ownerAsk + " @" + pokeOwn + " is my owner";
 				System.out.println("Nouvel owner :" + answer);
 				em.close();
 	            emf.close();
