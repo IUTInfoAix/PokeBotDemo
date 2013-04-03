@@ -5,15 +5,16 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToOne;
 
-@Entity
+@Entity @IdClass(AttacksPK.class) 
 @NamedQueries({
-    @NamedQuery(name = Attacks.FIND_BY_POKE, query = "SELECT at FROM Attacks at WHERE at.Pokemon = :pokemon"),
-    @NamedQuery(name = Attacks.COUNT_ATTA, query = "SELECT COUNT(at.Attack) FROM Attacks at WHERE at.Pokemon = :pokemon"),
+    @NamedQuery(name = Attacks.FIND_BY_POKE, query = "SELECT at FROM Attacks at WHERE at.poke = :pokemon"),
+    @NamedQuery(name = Attacks.COUNT_ATTA, query = "SELECT COUNT(at.attack) FROM Attacks at WHERE at.poke = :pokemon"),
     @NamedQuery(name = Attacks.FIND_ALL, query = "SELECT at FROM Attacks at "),
 })
 public class Attacks implements Serializable{
@@ -25,12 +26,12 @@ public class Attacks implements Serializable{
 	public static final String FIND_ALL = "findAllAttacks";
 	
 	@Id 
-	@OneToOne 
+	@ManyToOne 
 	@JoinColumn( name = "POKEMON")
-	private Pokemon Pokemon; 
+	private Pokemon poke; 
 	
 	@Id
-	private String Attack;
+	private String attack;
 	private String Niveau;
 	private String Puissance;
 	
@@ -52,19 +53,19 @@ public class Attacks implements Serializable{
 	}
 
 	public Pokemon getPokemon() {
-		return Pokemon;
+		return poke;
 	}
 
 	public void setPokemon(Pokemon pokemon) {
-		Pokemon = pokemon;
+		poke = pokemon;
 	}
 
 	public String getAttack() {
-		return Attack;
+		return attack;
 	}
 
-	public void setAttack(String attack) {
-		Attack = attack;
+	public void setAttack(String att) {
+		attack = att;
 	}
 
 	public String getNiveau() {
@@ -103,11 +104,11 @@ public class Attacks implements Serializable{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((Attack == null) ? 0 : Attack.hashCode());
+		result = prime * result + ((attack == null) ? 0 : attack.hashCode());
 		result = prime * result + ((Niveau == null) ? 0 : Niveau.hashCode());
 		result = prime * result + ((PP == null) ? 0 : PP.hashCode());
 		result = prime * result + ((PPMAX == null) ? 0 : PPMAX.hashCode());
-		result = prime * result + ((Pokemon == null) ? 0 : Pokemon.hashCode());
+		result = prime * result + ((poke == null) ? 0 : poke.hashCode());
 		result = prime * result
 				+ ((Precision == null) ? 0 : Precision.hashCode());
 		result = prime * result
@@ -124,10 +125,10 @@ public class Attacks implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Attacks other = (Attacks) obj;
-		if (Attack == null) {
-			if (other.Attack != null)
+		if (attack == null) {
+			if (other.attack != null)
 				return false;
-		} else if (!Attack.equals(other.Attack))
+		} else if (!attack.equals(other.attack))
 			return false;
 		if (Niveau == null) {
 			if (other.Niveau != null)
@@ -144,10 +145,10 @@ public class Attacks implements Serializable{
 				return false;
 		} else if (!PPMAX.equals(other.PPMAX))
 			return false;
-		if (Pokemon == null) {
-			if (other.Pokemon != null)
+		if (poke == null) {
+			if (other.poke != null)
 				return false;
-		} else if (!Pokemon.equals(other.Pokemon))
+		} else if (!poke.equals(other.poke))
 			return false;
 		if (Precision == null) {
 			if (other.Precision != null)
@@ -164,7 +165,7 @@ public class Attacks implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Attacks [Pokemon=" + Pokemon.getNom() + ", Attack=" + Attack
+		return "Attacks [Pokemon=" + poke.getNom() + ", Attack=" + attack
 				+ ", Niveau=" + Niveau + ", Puissance=" + Puissance
 				+ ", Precision=" + Precision + ", PP=" + PP + ", PPMAX="
 				+ PPMAX + "]";

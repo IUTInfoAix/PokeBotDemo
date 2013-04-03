@@ -16,7 +16,6 @@ public class PokemonFeatureCell implements SmartCell {
 		  	  
   		if ( question.getText().contains("#stat")) 
   		{
-	  			
 	  		  EntityManagerFactory emf = Persistence.createEntityManagerFactory("Pokemon");
 	  	      EntityManager em = emf.createEntityManager();
 	  	      String[] phrase = question.getText().split(" ");

@@ -14,10 +14,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.6</maven.compiler.source>
         <maven.compiler.target>1.6</maven.compiler.target>
-		<consumer.key>joywAPokONieyjIvhYUxuQ</consumer.key>
-		<consumer.secret>ZgPupfA69dgkHE0n1Vo9OUAhTwoCipXxBbg3Vy0H24</consumer.secret>
-		<access.token>1263823777-r4NUNDja5069zJ692xkMXB9mhqpujjddVatECQs</access.token>
-		<access.token.secret>UefBD2h8t41vWV5h7Hq4LGjEFqXQHGCPSbvrDN6AVlc</access.token.secret>
+		<consumer.key>RFbmmz7RW7K1iOkXIKsg</consumer.key>
+		<consumer.secret>eQ5DdvMjZnAKPnmysjO2AhaMIjImzWbkuSI9MEsDZQ</consumer.secret>
+		<access.token>1263986833-1RFnXfncuQM92R99oDT2w9gpK0TCYT5q5k9aNvX</access.token>
+		<access.token.secret>HSaL9mHdHrboy6Snd6j0ANPsnHFDOb3CR0DbQveWJk</access.token.secret>
     </properties>
 
     <dependencies>

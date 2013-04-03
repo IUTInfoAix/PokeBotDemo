@@ -1,0 +1,20 @@
+########## Compte Twitter CloudDeLuna
+debug=true
+oauth.consumerKey=joywAPokONieyjIvhYUxuQ
+oauth.consumerSecret=ZgPupfA69dgkHE0n1Vo9OUAhTwoCipXxBbg3Vy0H24
+oauth.accessToken=1263823777-r4NUNDja5069zJ692xkMXB9mhqpujjddVatECQs
+oauth.accessTokenSecret=UefBD2h8t41vWV5h7Hq4LGjEFqXQHGCPSbvrDN6AVlc
+
+########## Compte Twitter GwenGoupix
+debug=true
+oauth.consumerKey=RFbmmz7RW7K1iOkXIKsg
+oauth.consumerSecret=eQ5DdvMjZnAKPnmysjO2AhaMIjImzWbkuSI9MEsDZQ
+oauth.accessToken=1263986833-1RFnXfncuQM92R99oDT2w9gpK0TCYT5q5k9aNvX
+oauth.accessTokenSecret=HSaL9mHdHrboy6Snd6j0ANPsnHFDOb3CR0DbQveWJk
+
+########### Compte Twitter Nolelya
+debug=true
+oauth.consumerKey=2Ye9CTlg4w127y6MG8iA
+oauth.consumerSecret=SqJAo8UPxgzQk9OW9KsWqAe3dMpqh8IixwLFLUVix0
+oauth.accessToken=865088418-GXKGbUqpWk6ASaQOP4F4s8IDaDReM981x6J53ig
+oauth.accessTokenSecret=oBPF2zUqPCmfragLA1w3kjeDCUIz8Bi5ljYLvfUHU
