@@ -20,13 +20,11 @@ public class Combat implements Serializable {
 
 	public static final String GET_BY_NOM = "findCombatEnCoursByNom";
 	
-	@Id 
-	@Column( name = "NUMERO_COMBAT" )
-    private int Num_Cb;
-	
+	@Id	
 	@OneToOne 
 	@JoinColumn( name = "POKE_1")
 	private Pokemon Poke_1;
+	@Id
 	@OneToOne 
 	@JoinColumn( name = "POKE_2")
 	private Pokemon Poke_2;
@@ -37,45 +35,59 @@ public class Combat implements Serializable {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Combat(int num_Cb, Pokemon poke_1, Pokemon poke_2) {
+
+
+
+	public Combat(Pokemon poke_1, Pokemon poke_2) {
 		super();
-		Num_Cb = num_Cb;
 		Poke_1 = poke_1;
 		Poke_2 = poke_2;
 	}
-	public int getNum_Cb() {
-		return Num_Cb;
-	}
-	public void setNum_Cb(int num_Cb) {
-		Num_Cb = num_Cb;
-	}
+
+
+
 	public Pokemon getPoke_1() {
 		return Poke_1;
 	}
+
+
+
 	public void setPoke_1(Pokemon poke_1) {
 		Poke_1 = poke_1;
 	}
+
+
+
 	public Pokemon getPoke_2() {
 		return Poke_2;
 	}
+
+
+
 	public void setPoke_2(Pokemon poke_2) {
 		Poke_2 = poke_2;
 	}
 
+
+
 	@Override
 	public String toString() {
-		return "Combat [Num_Cb=" + Num_Cb + ", Poke_1=" + Poke_1 + ", Poke_2="
-				+ Poke_2 + "]";
+		return "Combat [Poke_1=" + Poke_1.getNom() + ", Poke_2=" + Poke_2.getNom() + "]";
 	}
+
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + Num_Cb;
 		result = prime * result + ((Poke_1 == null) ? 0 : Poke_1.hashCode());
 		result = prime * result + ((Poke_2 == null) ? 0 : Poke_2.hashCode());
 		return result;
 	}
+
+
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -85,8 +97,6 @@ public class Combat implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Combat other = (Combat) obj;
-		if (Num_Cb != other.Num_Cb)
-			return false;
 		if (Poke_1 == null) {
 			if (other.Poke_1 != null)
 				return false;
@@ -99,6 +109,7 @@ public class Combat implements Serializable {
 			return false;
 		return true;
 	}
+
 	
 	
 	

@@ -44,7 +44,7 @@ public class PokemonKOCell implements SmartCell {
 			
 			int PVPoke = Poke.getPV();
 			
-			if (PVPoke <= 0)
+			if (PVPoke == 0 || PVPoke < 0 )
 			{
 				return "#KO /cc @" + question.getScreenName() + " " 
 			+ (Poke.equals(poke1) ? ow2.getPrenom() : ow1.getPrenom()) + " " + (Poke.equals(poke1) ? ow1.getPrenom() : ow2.getPrenom()) ;
