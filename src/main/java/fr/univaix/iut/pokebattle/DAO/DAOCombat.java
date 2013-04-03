@@ -6,6 +6,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
 import fr.univaix.iut.pokebattle.beans.Combat;
+import fr.univaix.iut.pokebattle.beans.Owner;
 import fr.univaix.iut.pokebattle.beans.Pokemon;
 
 
@@ -34,21 +35,51 @@ public class DAOCombat {
 		}
 	}
 	
-	public Pokemon insert (Pokemon pokemon)
+	public Combat getByOwner ( Owner owner){
+		try 
+		{
+
+			TypedQuery<Combat> query = entityManager.createNamedQuery(Combat.GET_BY_OWNER , Combat.class);
+			query.setParameter("nom", owner );
+			return query.getSingleResult();
+			
+		}
+
+		catch (java.util.NoSuchElementException Exc)
+		{
+			return null;
+		}
+	}
+	
+	public Combat insert (Combat combat)
 	{
 		EntityTransaction entT = entityManager.getTransaction();
 		entT.begin();
-		entityManager.persist(pokemon);
+		entityManager.persist(combat);
 		entT.commit();
-		return entityManager.find(Pokemon.class, pokemon.getNom());
+		return combat ;
 	}
 	
-	public boolean delete (Pokemon pokemon)
+	public boolean delete (Combat combat)
 	{
 		try {
 			EntityTransaction entT = entityManager.getTransaction();
 			entT.begin();
-			entityManager.remove(pokemon);
+			entityManager.remove(combat);
+			entT.commit();
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	
+	public boolean update (Combat combat)
+	{
+		try {
+			EntityTransaction entT = entityManager.getTransaction();
+			entT.begin();
+			entityManager.merge(combat);
 			entT.commit();
 			return true;
 		} catch (Exception e) {
