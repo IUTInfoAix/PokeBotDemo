@@ -4,7 +4,32 @@ public class DataObjectAttack {
     String nom;
     String puissance;
     String precision;
-    String pp;
+    
+    public String getPp() {
+		return pp;
+	}
+
+	public void setPp(String pp) {
+		this.pp = pp;
+	}
+
+	public String getNiveau() {
+		return niveau;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public String getPuissance() {
+		return puissance;
+	}
+
+	public String getPrecision() {
+		return precision;
+	}
+
+	String pp;
 
     public DataObjectAttack(String niveau, String nom, String puissance, String precision, 
                             String pp) {

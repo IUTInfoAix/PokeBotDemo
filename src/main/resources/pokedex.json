@@ -13182,5 +13182,98 @@
         "pp": "30"
       }
     ]
+  },
+   {
+    "numéro": "037",
+    "nom": "Goupix",
+    "nomen": "Vulpix",
+    "nomja": "フシギダネ",
+    "nomtm": "Goup",
+    "nomde": "Vulpirsh",
+    "légende": "ArtworkdeGoupixpour{{RFVF}}",
+    "ndex": "037",
+    "jdex": "226",
+    "njdex": "231",
+    "hdex": "203",
+    "fdex": "001",
+    "odex": "R-014",
+    "opdex": "N-004",
+    "espece": "Renard",
+    "taille": "0.6",
+    "poids": "9.9",
+    "fmratio": "0.25",
+    "oeufpas": "5120",
+    "effortval": "+1Att.Spé",
+    "type1": "Feu",
+    "expval": "64",
+    "expmax": "1059860",
+    "captureval": "45",
+    "groupoeuf1": "Monstre",
+    "groupoeuf2": "Feu",
+    "capspe1": "Engrais",
+    "capspe2": "Chlorophyle",
+    "capspe2-reve": "oui",
+    "couleur": "orange-rouge",
+    "forme": "8",
+    "pokemon": "Goupix",
+    "numero": "153",
+    "attaques": [
+      {
+        "niveau": "Départ",
+        "nom": "Flammeche",
+        "puissance": "40",
+        "precision": "100",
+        "pp": "25"
+      },
+      {
+        "niveau": "N.5",
+        "nom": "Mini-Queue",
+        "puissance": "-",
+        "precision": "100",
+        "pp": "30"
+      },
+      {
+        "niveau": "N.9",
+        "nom": "Hurlement",
+        "puissance": "-",
+        "precision": "100",
+        "pp": "20"
+      },
+      {
+        "niveau": "N.13",
+        "nom": "Vive-Attaque",
+        "puissance": "40",
+        "precision": "100",
+        "pp": "0"
+      },
+      {
+        "niveau": "N.17",
+        "nom": "Feu-Follet",
+        "puissance": "-",
+        "precision": "75",
+        "pp": "15"
+      },
+      {
+        "niveau": "N.20",
+        "nom": "Onde-Folie",
+        "puissance": "-",
+        "precision": "100",
+        "pp": "10"
+      },
+      {
+        "niveau": "N.20",
+        "nom": "Possessif",
+        "puissance": "-",
+        "precision": "100",
+        "pp": "10"
+      },
+      {
+        "niveau": "N.29",
+        "nom": "Lance-flamme",
+        "puissance": "95",
+        "precision": "100",
+        "pp": "10"
+      }
+    ]
   }
 ]
