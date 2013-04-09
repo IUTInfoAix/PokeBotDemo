@@ -204,7 +204,5 @@ public class Attacks implements Serializable{
 				+ ", Precision=" + Precision + ", PP=" + PP + ", PPMAX="
 				+ PPMAX + "]";
 	}
-	
-	
-	
+
 }

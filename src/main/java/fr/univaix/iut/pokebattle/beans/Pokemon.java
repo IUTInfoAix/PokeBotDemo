@@ -106,8 +106,6 @@ public class Pokemon implements Serializable{
 		this.speed = speed;
 	}
 	
-	
-	@Override
 	public String toString() {
 		return "Pokemon [Nom=" + Nom + ", Race=" + Race + ", Niveau=" + Niveau
 				+ ", PV=" + PV + ", XP=" + XP + ", attack=" + attack
@@ -131,54 +129,82 @@ public class Pokemon implements Serializable{
 		result = prime * result + speed;
 		return result;
 	}
-	@Override
+
 	public boolean equals(Object obj) {
 		if (this == obj)
+		{
 			return true;
+		}
 		if (obj == null)
+		{
 			return false;
+		}
 		if (getClass() != obj.getClass())
+		{
 			return false;
+		}
 		Pokemon other = (Pokemon) obj;
 		if (Niveau == null) {
 			if (other.Niveau != null)
+			{
 				return false;
+			}
 		} else if (!Niveau.equals(other.Niveau))
+		{
 			return false;
+		}
 		if (Nom == null) {
 			if (other.Nom != null)
+			{
 				return false;
+			}
 		} else if (!Nom.equals(other.Nom))
+		{
 			return false;
+		}
 		if (PV != other.PV)
+		{
 			return false;
+		}
 		if (Race == null) {
 			if (other.Race != null)
+			{
 				return false;
+			}
 		} else if (!Race.equals(other.Race))
+		{
 			return false;
+		}
 		if (XP == null) {
 			if (other.XP != null)
+			{
 				return false;
+			}
 		} else if (!XP.equals(other.XP))
+		{
 			return false;
+		}
 		if (attack != other.attack)
+		{
 			return false;
+		}
 		if (attackSpecial != other.attackSpecial)
+		{
 			return false;
+		}
 		if (defense != other.defense)
+		{
 			return false;
+		}
 		if (defenseSpecial != other.defenseSpecial)
+		{
 			return false;
+		}
 		if (speed != other.speed)
+		{
 			return false;
+		}
 		return true;
 	}
-
-	
-
-	
-	
-	
 
 }
