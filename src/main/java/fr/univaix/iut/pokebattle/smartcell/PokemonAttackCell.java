@@ -27,20 +27,19 @@ public class PokemonAttackCell implements SmartCell {
 				DAOPokemon daoPoke = daof.createDAOPokemon();
 				
 				String[] phrase = question.getText().split(" ");
-				Pokemon Poke = daoPoke.getByNom(phrase[0]);
-				Owner owner = daoOwn.getByPokemon(Poke);
+				Pokemon poke = daoPoke.getByNom(phrase[0]);
+				Owner owner = daoOwn.getByPokemon(poke);
 									
 	
 					if ( owner.getPrenom().equals("@" + question.getScreenName())) 
 					{
-						Poke = daoPoke.getByNom(phrase[3]);
+						poke = daoPoke.getByNom(phrase[3]);
 						
-						int PVPoke = Poke.getPV();
-						Poke.setPV(PVPoke-10);
-						em.getTransaction().begin();
-						em.persist(Poke);
+						int pVPoke = poke.getPV();
+						poke.setPV(pVPoke-10);
+						em.getTransaction().begin(); 
+						em.persist(poke);
 						em.getTransaction().commit();
-						
 						
 				        return phrase[3] + " #attack " + phrase[2] + " /cc " + phrase[5] + " " + owner.getPrenom() + " " + phrase[6];  
 						//"@pikachuNyanNian #attack #charge /cc @nedseb @pcreux"

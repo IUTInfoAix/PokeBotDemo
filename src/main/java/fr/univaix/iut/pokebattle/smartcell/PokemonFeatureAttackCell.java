@@ -28,10 +28,10 @@ public class PokemonFeatureAttackCell implements SmartCell {
 		  	      DAOFactory daoF = new DAOFactory(em);
 		  	      
 		  		  DAOPokemon daoPoke = daoF.createDAOPokemon();
-				  Pokemon Poke = daoPoke.getByNom(phrase[0]);
+				  Pokemon poke = daoPoke.getByNom(phrase[0]);
 				  
 				  DAOAttacks daoAtt = daoF.createDAOAttacks();
-				  List<Attacks> listAtt = daoAtt.findByPokemon(Poke);
+				  List<Attacks> listAtt = daoAtt.findByPokemon(poke);
 				  
 				  String [] var = phrase[3].split("#");
 				  String attack = var[1];

@@ -26,7 +26,7 @@ public class DAOAttacks {
 			
 		}
 		
-		catch(java.util.NoSuchElementException Ex)
+		catch(java.util.NoSuchElementException ex)
 		{
 			return null;
 		}
@@ -39,7 +39,7 @@ public class DAOAttacks {
 			query.setParameter("pokemon", Pokemon);
 			return query.getFirstResult();
 		}
-		catch(java.util.NoSuchElementException Ex)
+		catch(java.util.NoSuchElementException ex)
 		{
 			return 0;
 		}
@@ -53,7 +53,7 @@ public class DAOAttacks {
 			
 		}
 		
-		catch(java.util.NoSuchElementException Ex)
+		catch(java.util.NoSuchElementException ex)
 		{
 			return null;
 		}

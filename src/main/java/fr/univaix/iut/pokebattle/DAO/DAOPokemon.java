@@ -27,7 +27,7 @@ public class DAOPokemon {
 			return query.getSingleResult();
 		}
 		
-		catch(Exception Ex)
+		catch(Exception ex)
 		{
 			return null;
 		}
@@ -45,7 +45,7 @@ public class DAOPokemon {
 			
 		}
 		
-		catch(Exception Ex)
+		catch(Exception ex)
 		{
 			return null;
 		}
@@ -62,7 +62,7 @@ public class DAOPokemon {
 			
 		}
 		
-		catch(java.util.NoSuchElementException Ex)
+		catch(java.util.NoSuchElementException ex)
 		{
 			return null;
 		}
@@ -80,7 +80,7 @@ public class DAOPokemon {
 			
 		}
 		
-		catch(Exception Ex)
+		catch(Exception ex)
 		{
 			return 0;
 		}

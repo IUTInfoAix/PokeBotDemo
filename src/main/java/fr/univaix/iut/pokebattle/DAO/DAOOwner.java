@@ -28,7 +28,7 @@ public class DAOOwner {
 			
 		}
 		
-		catch(java.util.NoSuchElementException Ex)
+		catch(java.util.NoSuchElementException ex)
 		{
 			return null;
 		}
@@ -40,16 +40,16 @@ public class DAOOwner {
 
 			TypedQuery<Owner> query = entityManager.createNamedQuery(Owner.FIND_BY_POKEMON , Owner.class);
 			query.setParameter("pokemon", Pokemon);
-			List<Owner> LOwn = query.getResultList();
+			List<Owner> lOwn = query.getResultList();
 			
-			Iterator<Owner> iter = LOwn.iterator();
+			Iterator<Owner> iter = lOwn.iterator();
 			
-			Owner Own = iter.next();
+			Owner own = iter.next();
 			
-			return Own;
+			return own;
 		}
 
-		catch (java.util.NoSuchElementException Exc)
+		catch (java.util.NoSuchElementException exc)
 		{
 			return null;
 		}
@@ -62,7 +62,7 @@ public class DAOOwner {
 			query.setParameter("prenom", Prenom);
 			return query.getFirstResult();
 		}
-		catch(java.util.NoSuchElementException Ex)
+		catch(java.util.NoSuchElementException ex)
 		{
 			return 0;
 		}
@@ -76,7 +76,7 @@ public class DAOOwner {
 			
 		}
 		
-		catch(java.util.NoSuchElementException Ex)
+		catch(java.util.NoSuchElementException ex)
 		{
 			return null;
 		}
