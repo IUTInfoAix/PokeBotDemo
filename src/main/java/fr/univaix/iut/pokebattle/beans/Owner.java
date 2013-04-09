@@ -11,9 +11,9 @@ import javax.persistence.OneToOne;
 
 @Entity
 @NamedQueries({
-    @NamedQuery(name = Owner.FIND_BY_PRENOM, query = "SELECT ow FROM Owner ow WHERE ow.Prenom = :prenom"),
-    @NamedQuery(name = Owner.FIND_BY_POKEMON, query = "SELECT ow FROM Owner ow WHERE ow.Pokemon = :pokemon"),
-    @NamedQuery(name = Owner.COUNT_POKE, query = "SELECT COUNT(ow.Pokemon) FROM Owner ow WHERE ow.Prenom = :prenom"),
+    @NamedQuery(name = Owner.FIND_BY_PRENOM, query = "SELECT ow FROM Owner ow WHERE ow.prenom = :prenom"),
+    @NamedQuery(name = Owner.FIND_BY_POKEMON, query = "SELECT ow FROM Owner ow WHERE ow.pokemon = :pokemon"),
+    @NamedQuery(name = Owner.COUNT_POKE, query = "SELECT COUNT(ow.pokemon) FROM Owner ow WHERE ow.prenom = :prenom"),
     @NamedQuery(name = Owner.FIND_ALL, query = "SELECT ow FROM Owner ow "),
 })
 public class Owner implements Serializable{
@@ -28,43 +28,43 @@ public class Owner implements Serializable{
 	@Id 
 	@OneToOne 
 	@JoinColumn( name = "POKEMON")
-	private Pokemon Pokemon; 
+	private Pokemon pokemon; 
 	
-	private String Prenom; 
+	private String prenom; 
 
 	
 	public Owner() {
 		super();
 	}
 	
-	public Owner(Pokemon pokemon, String prenom) {
+	public Owner(Pokemon pokemonn, String prenomm) {
 		super();
-		Pokemon = pokemon;
-		Prenom = prenom;
+		pokemon = pokemonn;
+		prenom = prenomm;
 	}
 	
 	public Pokemon getPokemon() {
-		return Pokemon;
+		return pokemon;
 	}
 
-	public void setPokemon(Pokemon pokemon) {
-		Pokemon = pokemon;
+	public void setPokemon(Pokemon pokemonn) {
+		pokemon = pokemonn;
 	}
 
 	public String getPrenom() {
-		return Prenom;
+		return prenom;
 	}
 
-	public void setPrenom(String prenom) {
-		Prenom = prenom;
+	public void setPrenom(String prenomm) {
+		prenom = prenomm;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((Pokemon == null) ? 0 : Pokemon.hashCode());
-		result = prime * result + ((Prenom == null) ? 0 : Prenom.hashCode());
+		result = prime * result + ((pokemon == null) ? 0 : pokemon.hashCode());
+		result = prime * result + ((prenom == null) ? 0 : prenom.hashCode());
 		return result;
 	}
 
@@ -82,21 +82,21 @@ public class Owner implements Serializable{
 		{
 			return false;
 		}		Owner other = (Owner) obj;
-		if (Pokemon == null) {
-			if (other.Pokemon != null)
+		if (pokemon == null) {
+			if (other.pokemon != null)
 			{
 				return false;
 			}
-		} else if (!Pokemon.equals(other.Pokemon))
+		} else if (!pokemon.equals(other.pokemon))
 		{
 			return false;
 		}
-		if (Prenom == null) {
-			if (other.Prenom != null)
+		if (prenom == null) {
+			if (other.prenom != null)
 			{
 				return false;
 			}
-		} else if (!Prenom.equals(other.Prenom))
+		} else if (!prenom.equals(other.prenom))
 		{
 			return false;
 		}
@@ -106,7 +106,7 @@ public class Owner implements Serializable{
 	//////////////////////////////ATTENTION A L'OBJET POKEMON ///////////////////////////////////////////////
 	@Override
 	public String toString() {
-		return "Owner [Pokemon=" + Pokemon.getNom() + ", Prenom=" + Prenom + "]";
+		return "Owner [Pokemon=" + pokemon.getNom() + ", Prenom=" + prenom + "]";
 	}
 	
 	

@@ -32,20 +32,20 @@ public class Attacks implements Serializable{
 	
 	@Id
 	private String attack;
-	private String Niveau;
-	private String Puissance;
+	private String niveau;
+	private String puissance;
 	
 	@Column( name = "PRC")
-	private String Precision;
-	private String PP;
-	private String PPMAX;
+	private String precision;
+	private String pP;
+	private String pPMAX;
 	
 	public String getPPMAX() {
-		return PPMAX;
+		return pPMAX;
 	}
 
-	public void setPPMAX(String pPMAX) {
-		PPMAX = pPMAX;
+	public void setPPMAX(String pPMAXX) {
+		pPMAX = pPMAXX;
 	}
 
 	public Attacks() {
@@ -69,35 +69,35 @@ public class Attacks implements Serializable{
 	}
 
 	public String getNiveau() {
-		return Niveau;
+		return niveau;
 	}
 
-	public void setNiveau(String niveau) {
-		Niveau = niveau;
+	public void setNiveau(String niveauu) {
+		niveau = niveauu;
 	}
 
 	public String getPuissance() {
-		return Puissance;
+		return puissance;
 	}
 
-	public void setPuissance(String puissance) {
-		Puissance = puissance;
+	public void setPuissance(String puissancee) {
+		puissance = puissancee;
 	}
 
 	public String getPrecision() {
-		return Precision;
+		return precision;
 	}
 
-	public void setPrecision(String precision) {
-		Precision = precision;
+	public void setPrecision(String precisionn) {
+		precision = precisionn;
 	}
 
 	public String getPP() {
-		return PP;
+		return pP;
 	}
 
-	public void setPP(String pP) {
-		PP = pP;
+	public void setPP(String pPP) {
+		pP = pPP;
 	}
 
 	@Override
@@ -105,14 +105,14 @@ public class Attacks implements Serializable{
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((attack == null) ? 0 : attack.hashCode());
-		result = prime * result + ((Niveau == null) ? 0 : Niveau.hashCode());
-		result = prime * result + ((PP == null) ? 0 : PP.hashCode());
-		result = prime * result + ((PPMAX == null) ? 0 : PPMAX.hashCode());
+		result = prime * result + ((niveau == null) ? 0 : niveau.hashCode());
+		result = prime * result + ((pP == null) ? 0 : pP.hashCode());
+		result = prime * result + ((pPMAX == null) ? 0 : pPMAX.hashCode());
 		result = prime * result + ((poke == null) ? 0 : poke.hashCode());
 		result = prime * result
-				+ ((Precision == null) ? 0 : Precision.hashCode());
+				+ ((precision == null) ? 0 : precision.hashCode());
 		result = prime * result
-				+ ((Puissance == null) ? 0 : Puissance.hashCode());
+				+ ((puissance == null) ? 0 : puissance.hashCode());
 		return result;
 	}
 
@@ -140,32 +140,32 @@ public class Attacks implements Serializable{
 		{
 			return false;
 		}
-		if (Niveau == null) {
-			if (other.Niveau != null)
+		if (niveau == null) {
+			if (other.niveau != null)
 			{
 				return false;
 			}
 		} 
-		else if (!Niveau.equals(other.Niveau))
+		else if (!niveau.equals(other.niveau))
 		{	
 			return false;
 		}
-		if (PP == null) {
-			if (other.PP != null)
+		if (pP == null) {
+			if (other.pP != null)
 			{
 				return false;
 			}
 		} 
-		else if (!PP.equals(other.PP))
+		else if (!pP.equals(other.pP))
 		{
 			return false;
 		}
-		if (PPMAX == null) {
-			if (other.PPMAX != null)
+		if (pPMAX == null) {
+			if (other.pPMAX != null)
 			{
 				return false;
 			}
-		} else if (!PPMAX.equals(other.PPMAX))
+		} else if (!pPMAX.equals(other.pPMAX))
 		{
 			return false;
 		}
@@ -178,21 +178,21 @@ public class Attacks implements Serializable{
 		{
 			return false;
 		}
-		if (Precision == null) {
-			if (other.Precision != null)
+		if (precision == null) {
+			if (other.precision != null)
 			{
 				return false;
 			}
-		} else if (!Precision.equals(other.Precision))
+		} else if (!precision.equals(other.precision))
 		{
 			return false;
 		}
-		if (Puissance == null) {
-			if (other.Puissance != null)
+		if (puissance == null) {
+			if (other.puissance != null)
 			{
 				return false;
 			}
-		} else if (!Puissance.equals(other.Puissance))
+		} else if (!puissance.equals(other.puissance))
 		{
 			return false;
 		}
@@ -202,9 +202,9 @@ public class Attacks implements Serializable{
 	@Override
 	public String toString() {
 		return "Attacks [Pokemon=" + poke.getNom() + ", Attack=" + attack
-				+ ", Niveau=" + Niveau + ", Puissance=" + Puissance
-				+ ", Precision=" + Precision + ", PP=" + PP + ", PPMAX="
-				+ PPMAX + "]";
+				+ ", Niveau=" + niveau + ", Puissance=" + puissance
+				+ ", Precision=" + precision + ", PP=" + pP + ", PPMAX="
+				+ pPMAX + "]";
 	}
 
 }

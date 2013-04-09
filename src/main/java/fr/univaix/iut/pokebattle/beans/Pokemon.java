@@ -11,9 +11,9 @@ import javax.persistence.NamedQuery;
 
 @Entity
 @NamedQueries({
-    @NamedQuery(name = Pokemon.FIND_BY_NOM, query = "SELECT poke FROM Pokemon poke WHERE poke.Nom = :nom"),
-    @NamedQuery(name = Pokemon.FIND_BY_RACE, query = "SELECT poke FROM Pokemon poke WHERE poke.Race = :race"),
-    @NamedQuery(name = Pokemon.COUNT_POKE_PER_RACE, query = "SELECT COUNT(poke.Nom) FROM Pokemon poke WHERE poke.Race = :race"),
+    @NamedQuery(name = Pokemon.FIND_BY_NOM, query = "SELECT poke FROM Pokemon poke WHERE poke.nom = :nom"),
+    @NamedQuery(name = Pokemon.FIND_BY_RACE, query = "SELECT poke FROM Pokemon poke WHERE poke.race = :race"),
+    @NamedQuery(name = Pokemon.COUNT_POKE_PER_RACE, query = "SELECT COUNT(poke.nom) FROM Pokemon poke WHERE poke.race = :race"),
     @NamedQuery(name = Pokemon.FIND_ALL, query = "SELECT poke FROM Pokemon poke "),
 })
 
@@ -28,11 +28,11 @@ public class Pokemon implements Serializable{
 	
 	@Id
     @JoinColumn ( name = "Nom")
-	private String Nom;
-	private String Race;
-	private String Niveau;
-	private int PV;
-	private String XP;
+	private String nom;
+	private String race;
+	private String niveau;
+	private int pV;
+	private String xP;
 	@Column( name = "ATTS")
     private int attack;
 	@Column( name = "DEFS")
@@ -46,34 +46,34 @@ public class Pokemon implements Serializable{
 	
 	
 	public String getNom() {
-		return Nom;
+		return nom;
 	}
-	public void setNom(String nom) {
-		Nom = nom;
+	public void setNom(String nomm) {
+		nom = nomm;
 	}
 	public String getRace() {
-		return Race;
+		return race;
 	}
-	public void setRace(String race) {
-		Race = race;
+	public void setRace(String racee) {
+		race = racee;
 	}
 	public String getNiveau() {
-		return Niveau;
+		return niveau;
 	}
-	public void setNiveau(String niveau) {
-		Niveau = niveau;
+	public void setNiveau(String niveauu) {
+		niveau = niveauu;
 	}
 	public int getPV() {
-		return PV;
+		return pV;
 	}
-	public void setPV(int pV) {
-		PV = pV;
+	public void setPV(int pVV) {
+		pV = pVV;
 	}	
 	public String getXP() {
-		return XP;
+		return xP;
 	}
-	public void setXP(String xP) {
-		XP = xP;
+	public void setXP(String xPP) {
+		xP = xPP;
 	}
 	public int getAttack() {
 		return attack;
@@ -107,8 +107,8 @@ public class Pokemon implements Serializable{
 	}
 	
 	public String toString() {
-		return "Pokemon [Nom=" + Nom + ", Race=" + Race + ", Niveau=" + Niveau
-				+ ", PV=" + PV + ", XP=" + XP + ", attack=" + attack
+		return "Pokemon [Nom=" + nom + ", Race=" + race + ", Niveau=" + niveau
+				+ ", PV=" + pV + ", XP=" + xP + ", attack=" + attack
 				+ ", defense=" + defense + ", attackSpecial=" + attackSpecial
 				+ ", defenseSpecial=" + defenseSpecial + ", speed=" + speed
 				+ "]";
@@ -117,11 +117,11 @@ public class Pokemon implements Serializable{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((Niveau == null) ? 0 : Niveau.hashCode());
-		result = prime * result + ((Nom == null) ? 0 : Nom.hashCode());
-		result = prime * result + PV;
-		result = prime * result + ((Race == null) ? 0 : Race.hashCode());
-		result = prime * result + ((XP == null) ? 0 : XP.hashCode());
+		result = prime * result + ((niveau == null) ? 0 : niveau.hashCode());
+		result = prime * result + ((nom == null) ? 0 : nom.hashCode());
+		result = prime * result + pV;
+		result = prime * result + ((race == null) ? 0 : race.hashCode());
+		result = prime * result + ((xP == null) ? 0 : xP.hashCode());
 		result = prime * result + attack;
 		result = prime * result + attackSpecial;
 		result = prime * result + defense;
@@ -144,43 +144,43 @@ public class Pokemon implements Serializable{
 			return false;
 		}
 		Pokemon other = (Pokemon) obj;
-		if (Niveau == null) {
-			if (other.Niveau != null)
+		if (niveau == null) {
+			if (other.niveau != null)
 			{
 				return false;
 			}
-		} else if (!Niveau.equals(other.Niveau))
+		} else if (!niveau.equals(other.niveau))
 		{
 			return false;
 		}
-		if (Nom == null) {
-			if (other.Nom != null)
+		if (nom == null) {
+			if (other.nom != null)
 			{
 				return false;
 			}
-		} else if (!Nom.equals(other.Nom))
+		} else if (!nom.equals(other.nom))
 		{
 			return false;
 		}
-		if (PV != other.PV)
+		if (pV != other.pV)
 		{
 			return false;
 		}
-		if (Race == null) {
-			if (other.Race != null)
+		if (race == null) {
+			if (other.race != null)
 			{
 				return false;
 			}
-		} else if (!Race.equals(other.Race))
+		} else if (!race.equals(other.race))
 		{
 			return false;
 		}
-		if (XP == null) {
-			if (other.XP != null)
+		if (xP == null) {
+			if (other.xP != null)
 			{
 				return false;
 			}
-		} else if (!XP.equals(other.XP))
+		} else if (!xP.equals(other.xP))
 		{
 			return false;
 		}
