@@ -17,13 +17,13 @@ public class DAOPokemon {
 		this.entityManager = em;
 	}
 	
-	public Pokemon getByNom ( String Nom )
+	public Pokemon getByNom ( String nom )
 	{
 		
 		try{	
 			
 			TypedQuery<Pokemon> query = entityManager.createNamedQuery(Pokemon.FIND_BY_NOM , Pokemon.class);
-			query.setParameter("nom", Nom);
+			query.setParameter("nom", nom);
 			return query.getSingleResult();
 		}
 		
@@ -34,13 +34,13 @@ public class DAOPokemon {
 		
 	}
 	
-	public List<Pokemon> findByRace ( String Race )
+	public List<Pokemon> findByRace ( String race )
 	{
 		
 		try{	
 			
 			TypedQuery<Pokemon> query = entityManager.createNamedQuery(Pokemon.FIND_BY_RACE , Pokemon.class);
-			query.setParameter("race", Race);
+			query.setParameter("race", race);
 			return query.getResultList();
 			
 		}
@@ -69,13 +69,13 @@ public class DAOPokemon {
 		
 	}
 	
-	public int countByRace ( String Race )
+	public int countByRace ( String race )
 	{
 		
 		try{	
 			
 			TypedQuery<Pokemon> query = entityManager.createNamedQuery(Pokemon.COUNT_POKE_PER_RACE , Pokemon.class);
-			query.setParameter("race", Race);
+			query.setParameter("race", race);
 			return query.getFirstResult();
 			
 		}

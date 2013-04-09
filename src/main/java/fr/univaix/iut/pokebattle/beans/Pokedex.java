@@ -24,7 +24,9 @@ public class Pokedex {
 	public static Pokedex getInstance()
 	{
 		if (pok != null)
+		{
 			return pok;
+		}
 		return pok = new Pokedex();
 	}
 	

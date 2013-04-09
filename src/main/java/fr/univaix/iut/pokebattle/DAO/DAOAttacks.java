@@ -32,11 +32,11 @@ public class DAOAttacks {
 		}
 	}
 	
-	public int computeNbAttacks( String Pokemon ){
+	public int computeNbAttacks( String pokemon ){
 		try{
 			
 			TypedQuery<Attacks> query = entityManager.createNamedQuery(Attacks.COUNT_ATTA , Attacks.class);
-			query.setParameter("pokemon", Pokemon);
+			query.setParameter("pokemon", pokemon);
 			return query.getFirstResult();
 		}
 		catch(java.util.NoSuchElementException ex)

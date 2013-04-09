@@ -127,34 +127,58 @@ public class Combat implements Serializable {
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
+		{
 			return true;
+		}
 		if (obj == null)
+		{
 			return false;
+		}
 		if (getClass() != obj.getClass())
+		{
 			return false;
+		}
 		Combat other = (Combat) obj;
 		if (idCombat != other.idCombat)
+		{
 			return false;
+		}
 		if (owner_1 == null) {
 			if (other.owner_1 != null)
+			{
 				return false;
+			}
 		} else if (!owner_1.equals(other.owner_1))
+		{
 			return false;
+		}
 		if (owner_2 == null) {
 			if (other.owner_2 != null)
+			{
 				return false;
+			}
 		} else if (!owner_2.equals(other.owner_2))
+		{
 			return false;
+		}
 		if (poke_1 == null) {
 			if (other.poke_1 != null)
+			{
 				return false;
+			}
 		} else if (!poke_1.equals(other.poke_1))
+		{
 			return false;
+		}
 		if (poke_2 == null) {
 			if (other.poke_2 != null)
+			{
 				return false;
+			}
 		} else if (!poke_2.equals(other.poke_2))
+		{
 			return false;
+		}
 		return true;
 	}
 

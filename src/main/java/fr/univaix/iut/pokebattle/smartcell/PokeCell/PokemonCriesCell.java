@@ -10,7 +10,9 @@ public class PokemonCriesCell implements SmartCell {
 
     public String ask(Tweet question) {
         if (question.getScreenName() != null)
-            return "@" + question.getScreenName() + " Pika pika";
+        {
+           return "@" + question.getScreenName() + " Pika pika";
+        }
         return "Pika pika";
     }
 

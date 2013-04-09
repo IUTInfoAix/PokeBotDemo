@@ -19,12 +19,12 @@ public class DAOCombat {
 	}
 	
 	
-	public Combat getByPokemon ( Pokemon Pokemon){
+	public Combat getByPokemon ( Pokemon pokemon){
 		try 
 		{
 
 			TypedQuery<Combat> query = entityManager.createNamedQuery(Combat.GET_BY_NOM , Combat.class);
-			query.setParameter("nom", Pokemon );
+			query.setParameter("nom", pokemon );
 			return query.getSingleResult();
 			
 		}

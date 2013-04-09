@@ -19,11 +19,11 @@ public class DAOOwner {
 		this.entityManager = em;
 	}
 	
-	public List<Owner> findByPrenom ( String Prenom ){
+	public List<Owner> findByPrenom ( String prenom ){
 		try{	
 			
 			TypedQuery<Owner> query = entityManager.createNamedQuery(Owner.FIND_BY_PRENOM , Owner.class);
-			query.setParameter("prenom", Prenom);
+			query.setParameter("prenom", prenom);
 			return query.getResultList();
 			
 		}
@@ -34,12 +34,12 @@ public class DAOOwner {
 		}
 	}
 	
-	public Owner getByPokemon ( Pokemon Pokemon ){
+	public Owner getByPokemon ( Pokemon pokemon ){
 		try 
 		{
 
 			TypedQuery<Owner> query = entityManager.createNamedQuery(Owner.FIND_BY_POKEMON , Owner.class);
-			query.setParameter("pokemon", Pokemon);
+			query.setParameter("pokemon", pokemon);
 			List<Owner> lOwn = query.getResultList();
 			
 			Iterator<Owner> iter = lOwn.iterator();
@@ -55,11 +55,11 @@ public class DAOOwner {
 		}
 	}
 
-	public int computeNbPoke( String Prenom ){
+	public int computeNbPoke( String prenom ){
 		try{
 			
 			TypedQuery<Owner> query = entityManager.createNamedQuery(Owner.COUNT_POKE , Owner.class);
-			query.setParameter("prenom", Prenom);
+			query.setParameter("prenom", prenom);
 			return query.getFirstResult();
 		}
 		catch(java.util.NoSuchElementException ex)
