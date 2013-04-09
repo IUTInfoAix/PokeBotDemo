@@ -8,6 +8,7 @@ import fr.univaix.iut.pokebattle.smartcell.PokemonCaptureCell;
 import fr.univaix.iut.pokebattle.smartcell.PokemonCriesCell;
 import fr.univaix.iut.pokebattle.smartcell.PokemonFeatureAttackCell;
 import fr.univaix.iut.pokebattle.smartcell.PokemonFeatureCell;
+import fr.univaix.iut.pokebattle.smartcell.PokemonKOCell;
 import fr.univaix.iut.pokebattle.smartcell.PokemonOwnerCell;
 import fr.univaix.iut.pokebattle.smartcell.SmartCell;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
@@ -19,14 +20,17 @@ public class PokeBot implements Bot {
      * List of smartcell the questions go through to
      * find an answer.
      */
+
 	private final SmartCell[] smartCells = new SmartCell[]{
 	    		new PokemonFeatureAttackCell(),
 	    		new PokemonAttackCell(),
 	    		new PokemonCaptureCell(),
 	            new PokemonOwnerCell(),
 	            new PokemonFeatureCell(),
+	            new PokemonKOCell(),
 	            new PokemonCriesCell(),
 	    };
+
 
     public SmartCell[] getSmartCells() {
 		return smartCells;

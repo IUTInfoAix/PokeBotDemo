@@ -1,12 +1,11 @@
 package fr.univaix.iut.pokebattle.bot;
 
-import com.google.common.collect.Lists;
+import twitter4j.TwitterException;
+import fr.univaix.iut.pokebattle.smartcell.JudgeBattleCell;
+import fr.univaix.iut.pokebattle.smartcell.JudgeBotPVCell;
+import fr.univaix.iut.pokebattle.smartcell.JudgeBotWinnerCell;
 import fr.univaix.iut.pokebattle.smartcell.SmartCell;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
-
-import java.util.List;
-
-import twitter4j.TwitterException;
 
 
 public class JudgeBot implements Bot {
@@ -14,11 +13,13 @@ public class JudgeBot implements Bot {
      * List of smartcell the questions go through to
      * find an answer.
      */
-	private final List<SmartCell> smartCells = Lists.newArrayList();
-	
-    public List<SmartCell> getSmartCells() {
-		return smartCells;
-	}
+
+    final SmartCell[] smartCells = new SmartCell[]{
+    		new JudgeBotPVCell(),
+    		new JudgeBotWinnerCell(),
+    		new JudgeBattleCell(),
+    };
+
 
 	/**
      * Ask something to Bot, it will respond to you.
@@ -33,8 +34,16 @@ public class JudgeBot implements Bot {
         for (SmartCell cell : smartCells) {
             String answer; 
             answer = cell.ask(question);
+            
+            if ( answer  == "skip" ) 
+            {
+            	break;
+            }
+            
             if (answer != null)
+            {
                 return answer;
+            }
         }
         return null;
     }

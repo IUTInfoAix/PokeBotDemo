@@ -21,5 +21,10 @@ public class DAOFactory {
 	public DAOAttacks createDAOAttacks() {
 		return new DAOAttacks(entityManager);
 	}
+	
+	public DAOCombat createDAOCombat() {
+		return new DAOCombat(entityManager);
+
+	}
 
 }
