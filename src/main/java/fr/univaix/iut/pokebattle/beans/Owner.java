@@ -71,22 +71,35 @@ public class Owner implements Serializable{
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
+		{
 			return true;
+		}
 		if (obj == null)
+		{
 			return false;
+		}
 		if (getClass() != obj.getClass())
+		{
 			return false;
-		Owner other = (Owner) obj;
+		}		Owner other = (Owner) obj;
 		if (Pokemon == null) {
 			if (other.Pokemon != null)
+			{
 				return false;
+			}
 		} else if (!Pokemon.equals(other.Pokemon))
+		{
 			return false;
+		}
 		if (Prenom == null) {
 			if (other.Prenom != null)
+			{
 				return false;
+			}
 		} else if (!Prenom.equals(other.Prenom))
+		{
 			return false;
+		}
 		return true;
 	}
 

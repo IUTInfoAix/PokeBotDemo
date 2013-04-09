@@ -31,9 +31,12 @@ public class Pokedex {
 	public DataObjectPokemon getPokemon (String pok)
 	{		
         for (DataObjectPokemon  pokemon: data)
+        {
         	if (pokemon.getNom().equals(pok))
+        	{
         		return pokemon;
-        
+        	}
+        }
 		return null;
 	}
 
@@ -55,24 +58,40 @@ public class Pokedex {
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
+		{
 			return true;
+		}
 		if (obj == null)
+		{
 			return false;
+		}
 		if (getClass() != obj.getClass())
+		{
 			return false;
+		}
 		Pokedex other = (Pokedex) obj;
 		if (br == null) {
 			if (other.br != null)
+			{
 				return false;
+			}
 		} else if (!br.equals(other.br))
+		{
 			return false;
+		}
 		if (!Arrays.equals(data, other.data))
+		{
 			return false;
+		}
 		if (gson == null) {
 			if (other.gson != null)
+			{
 				return false;
+			}
 		} else if (!gson.equals(other.gson))
+		{
 			return false;
+		}
 		return true;
 	}
 
