@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 import com.google.gson.Gson;
 
-public class Pokedex {
+public final class Pokedex {
 	
 	private static Pokedex pok = null;
 	

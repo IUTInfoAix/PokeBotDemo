@@ -51,9 +51,11 @@ public class PokemonFeatureAttackCell implements SmartCell {
 						  break;
 					  }
 					  else
+					  {
 						  know = false;
+					  }
 				  }
-				  if (know == false)
+				  if (!know)
 				  {
 					  return "@" + question.getScreenName() + " O_o ?";
 				  }

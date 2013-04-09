@@ -51,7 +51,9 @@ public class PokemonKOCell implements SmartCell {
 			+ (Poke.equals(poke1) ? ow2.getPrenom() : ow1.getPrenom()) + " " + (Poke.equals(poke1) ? ow1.getPrenom() : ow2.getPrenom()) ;
 			}
 			else
+			{
 				return null;
+			}
 		}
 		return null;
 	}

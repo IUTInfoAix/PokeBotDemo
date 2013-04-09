@@ -66,15 +66,13 @@ public class JudgeBattleCell implements SmartCell {
 				return "skip";
 			}
 			else
+			{
 				return  "@"+question.getScreenName() + " " + ow1.getPrenom() + " is my owner";
+			}
 		}
 		else if (matcher2.matches())
 		{
-			System.out.println(" ");
-			System.out.println(" ");
-			System.out.println("Battle OK");
-			System.out.println(" ");
-			System.out.println(" ");
+			//System.out.println("Battle OK");
 			String nomDresseur = matcher2.group(1);
 			String nomPokemonAdversaire = matcher2.group(2);
 			
