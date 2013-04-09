@@ -5,14 +5,16 @@ grant all privileges on Pokemon.* to monUser@localhost identified by 'monPasswor
 use Pokemon;
 
 CREATE TABLE OWNER 
-   (	POKEMON VARCHAR(20),
-	PRENOM VARCHAR(20), 
+   (	
+	PRENOM VARCHAR(20),
+	POKEMON VARCHAR(20),
 	PRIMARY KEY (POKEMON)
    ) ;
 
 insert into OWNER VALUES ("@CloudDeLuna", "@GwenGoupix");
 insert into OWNER VALUES ("@cybsip", "@Smogogo13");
 insert into OWNER VALUES ("@CloudDeLuna", "@Dracaufeu13");
+INSERT INTO OWNER VALUES (NULL, "INCONNU");
 
 /*insert into OWNER VALUES ("@cybsip", "@Dracaufeu13");*/
 
@@ -34,6 +36,7 @@ CREATE TABLE POKEMON
 INSERT INTO POKEMON VALUES ( "@GwenGoupix" , "Goupix" , 100 , "N.1" , "XP.0" , 0 , 0 , 0 , 0 , 0 );
 INSERT INTO POKEMON VALUES ( "@Smogogo13" , "Smogogo" , 100 , "N.1" , "XP.0" , 0 , 0 , 0 , 0 , 0 );
 INSERT INTO POKEMON VALUES ( "@Dracaufeu13" , "Dracaufeu" , 100 , "N.1" , "XP.0" , 0 , 0 , 0 , 0 , 0 );
+INSERT INTO POKEMON VALUES ( "INCONNU", NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 
 CREATE TABLE ATTACKS

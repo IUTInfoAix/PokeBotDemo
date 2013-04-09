@@ -1,4 +1,4 @@
-package fr.univaix.iut.pokebattle.smartcell;
+package fr.univaix.iut.pokebattle.smartcell.PokeCell;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -7,6 +7,7 @@ import javax.persistence.Persistence;
 import fr.univaix.iut.pokebattle.DAO.DAOFactory;
 import fr.univaix.iut.pokebattle.DAO.DAOPokemon;
 import fr.univaix.iut.pokebattle.beans.Pokemon;
+import fr.univaix.iut.pokebattle.smartcell.SmartCell;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
 
 public class PokemonFeatureCell implements SmartCell {

@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import twitter4j.TwitterException;
-import fr.univaix.iut.pokebattle.smartcell.PokemonCaptureCell;
+import fr.univaix.iut.pokebattle.smartcell.PokeCell.PokemonCaptureCell;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
 
 public class PokemonCaptureCellTest {

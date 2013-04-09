@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import twitter4j.TwitterException;
 
+import fr.univaix.iut.pokebattle.smartcell.JudgeCell.JudgeBotWinnerCell;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
 
 

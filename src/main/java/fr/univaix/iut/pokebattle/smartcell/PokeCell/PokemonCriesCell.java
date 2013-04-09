@@ -1,5 +1,6 @@
-package fr.univaix.iut.pokebattle.smartcell;
+package fr.univaix.iut.pokebattle.smartcell.PokeCell;
 
+import fr.univaix.iut.pokebattle.smartcell.SmartCell;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
 
 /**

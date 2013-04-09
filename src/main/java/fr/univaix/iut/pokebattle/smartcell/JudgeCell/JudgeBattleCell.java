@@ -1,4 +1,4 @@
-package fr.univaix.iut.pokebattle.smartcell;
+package fr.univaix.iut.pokebattle.smartcell.JudgeCell;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -15,6 +15,7 @@ import fr.univaix.iut.pokebattle.DAO.DAOPokemon;
 import fr.univaix.iut.pokebattle.beans.Combat;
 import fr.univaix.iut.pokebattle.beans.Owner;
 import fr.univaix.iut.pokebattle.beans.Pokemon;
+import fr.univaix.iut.pokebattle.smartcell.SmartCell;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
 
 

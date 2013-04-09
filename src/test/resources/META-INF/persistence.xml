@@ -8,6 +8,7 @@
 		<class>fr.univaix.iut.pokebattle.beans.Owner</class>
 		<class>fr.univaix.iut.pokebattle.beans.Pokemon</class>
 		<class>fr.univaix.iut.pokebattle.beans.Attacks</class>
+		<class>fr.univaix.iut.pokebattle.beans.Combat</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/Pokemon"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>

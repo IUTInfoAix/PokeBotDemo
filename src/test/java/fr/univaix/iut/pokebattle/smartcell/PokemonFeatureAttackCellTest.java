@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import fr.univaix.iut.pokebattle.smartcell.PokeCell.PokemonFeatureAttackCell;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
 
 public class PokemonFeatureAttackCellTest {

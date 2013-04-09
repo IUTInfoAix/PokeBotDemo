@@ -3,14 +3,14 @@ package fr.univaix.iut.pokebattle.bot;
 import java.util.List;
 
 import twitter4j.TwitterException;
-import fr.univaix.iut.pokebattle.smartcell.PokemonAttackCell;
-import fr.univaix.iut.pokebattle.smartcell.PokemonCaptureCell;
-import fr.univaix.iut.pokebattle.smartcell.PokemonCriesCell;
-import fr.univaix.iut.pokebattle.smartcell.PokemonFeatureAttackCell;
-import fr.univaix.iut.pokebattle.smartcell.PokemonFeatureCell;
-import fr.univaix.iut.pokebattle.smartcell.PokemonKOCell;
-import fr.univaix.iut.pokebattle.smartcell.PokemonOwnerCell;
 import fr.univaix.iut.pokebattle.smartcell.SmartCell;
+import fr.univaix.iut.pokebattle.smartcell.PokeCell.PokemonAttackCell;
+import fr.univaix.iut.pokebattle.smartcell.PokeCell.PokemonCaptureCell;
+import fr.univaix.iut.pokebattle.smartcell.PokeCell.PokemonCriesCell;
+import fr.univaix.iut.pokebattle.smartcell.PokeCell.PokemonFeatureAttackCell;
+import fr.univaix.iut.pokebattle.smartcell.PokeCell.PokemonFeatureCell;
+import fr.univaix.iut.pokebattle.smartcell.PokeCell.PokemonKOCell;
+import fr.univaix.iut.pokebattle.smartcell.PokeCell.PokemonOwnerCell;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
 
 

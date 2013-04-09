@@ -1,4 +1,4 @@
-package fr.univaix.iut.pokebattle.smartcell;
+package fr.univaix.iut.pokebattle.smartcell.PokeCell;
 
 import java.util.List;
 
@@ -11,6 +11,7 @@ import fr.univaix.iut.pokebattle.DAO.DAOFactory;
 import fr.univaix.iut.pokebattle.DAO.DAOPokemon;
 import fr.univaix.iut.pokebattle.beans.Attacks;
 import fr.univaix.iut.pokebattle.beans.Pokemon;
+import fr.univaix.iut.pokebattle.smartcell.SmartCell;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
 
 

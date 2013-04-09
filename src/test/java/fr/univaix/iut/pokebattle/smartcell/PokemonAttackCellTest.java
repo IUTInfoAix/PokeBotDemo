@@ -6,7 +6,7 @@ import org.junit.Test;
 
 
 import twitter4j.TwitterException;
-import fr.univaix.iut.pokebattle.smartcell.PokemonAttackCell;
+import fr.univaix.iut.pokebattle.smartcell.PokeCell.PokemonAttackCell;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
 
 public class PokemonAttackCellTest {

@@ -1,4 +1,4 @@
-package fr.univaix.iut.pokebattle.smartcell;
+package fr.univaix.iut.pokebattle.smartcell.PokeCell;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -11,6 +11,7 @@ import fr.univaix.iut.pokebattle.DAO.DAOPokemon;
 import fr.univaix.iut.pokebattle.beans.Combat;
 import fr.univaix.iut.pokebattle.beans.Owner;
 import fr.univaix.iut.pokebattle.beans.Pokemon;
+import fr.univaix.iut.pokebattle.smartcell.SmartCell;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
 
 public class PokemonKOCell implements SmartCell {
@@ -22,7 +23,6 @@ public class PokemonKOCell implements SmartCell {
 			
 			EntityManagerFactory emf = Persistence.createEntityManagerFactory("Pokemon");
 			EntityManager em = emf.createEntityManager();
-			
 			
 			DAOFactory daof = new DAOFactory(em);
 			
@@ -43,6 +43,7 @@ public class PokemonKOCell implements SmartCell {
 			
 			
 			int PVPoke = Poke.getPV();
+			System.out.println(PVPoke);
 			
 			if (PVPoke == 0 || PVPoke < 0 )
 			{

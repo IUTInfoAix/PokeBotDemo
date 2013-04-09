@@ -1,4 +1,4 @@
-package fr.univaix.iut.pokebattle.smartcell;
+package fr.univaix.iut.pokebattle.smartcell.JudgeCell;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -10,6 +10,7 @@ import fr.univaix.iut.pokebattle.DAO.DAOFactory;
 import fr.univaix.iut.pokebattle.DAO.DAOPokemon;
 import fr.univaix.iut.pokebattle.beans.Combat;
 import fr.univaix.iut.pokebattle.beans.Pokemon;
+import fr.univaix.iut.pokebattle.smartcell.SmartCell;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
 
 public class JudgeBotWinnerCell implements SmartCell {
