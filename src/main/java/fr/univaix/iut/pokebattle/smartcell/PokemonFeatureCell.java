@@ -41,7 +41,7 @@ public class PokemonFeatureCell implements SmartCell {
 		  		
 		  	  else if( question.getText().contains("#PV")) 
 		  	  {
-		  			return "@" + question.getScreenName() + " #PV = " + Poke.getPV() + "/100";
+		  			return "@" + question.getScreenName() + " #PV =" + Poke.getPV() + "/100";
 
 		  	  }
 		  	  

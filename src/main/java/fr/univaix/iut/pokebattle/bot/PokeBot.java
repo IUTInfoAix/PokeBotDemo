@@ -10,8 +10,6 @@ import fr.univaix.iut.pokebattle.smartcell.PokemonOwnerCell;
 import fr.univaix.iut.pokebattle.smartcell.SmartCell;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
 
-
-
 public class PokeBot implements Bot {
     /**
      * List of smartcell the questions go through to
