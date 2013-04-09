@@ -14,6 +14,7 @@ import javax.persistence.OneToOne;
 @NamedQueries({
     @NamedQuery(name = Combat.GET_BY_NOM, query = "SELECT cb FROM Combat cb WHERE  ( cb.Poke_1 = :nom OR cb.Poke_2 = :nom )"),
     @NamedQuery(name = Combat.GET_BY_OWNER, query = "SELECT cb FROM Combat cb WHERE  ( cb.Owner_1 = :nom OR cb.Owner_2 = :nom )"),
+    @NamedQuery(name = Combat.GET_MAX_NUM_CB, query = "SELECT MAX(cb.IdCombat) FROM Combat cb"),
 })
 public class Combat implements Serializable {
 	
@@ -21,32 +22,37 @@ public class Combat implements Serializable {
 
 	public static final String GET_BY_NOM = "findCombatEnCoursByPokemon";
 	public static final String GET_BY_OWNER = "findCombatEnCoursByOwner";
-	@Id	
+	public static final String GET_MAX_NUM_CB = "findMaxNumCB";
+	
+	
+	@Id 
+	@Column( name = "NUM_CB")
+	private int IdCombat ;
+	
+	
 	@OneToOne 
 	@JoinColumn( name = "POKE_1")
 	private Pokemon Poke_1;
 	
-	@OneToOne 
-	@JoinColumn( name = "OWNER_1")
-	private Owner Owner_1;
-	
-	@Id
+
+	private String Owner_1;
+
 	@OneToOne 
 	@JoinColumn( name = "POKE_2")
 	private Pokemon Poke_2;
-	
-	@OneToOne 
-	@JoinColumn( name = "OWNER_2")
-	private Owner Owner_2;
+	 
+	private String Owner_2;
 	
 	
 	public Combat() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
-	
-	public Combat(Pokemon poke_1, Owner owner_1, Pokemon poke_2, Owner owner_2) {
+
+	public Combat(int idCombat, Pokemon poke_1, String owner_1, Pokemon poke_2,
+			String owner_2) {
+		super();
+		IdCombat = idCombat;
 		Poke_1 = poke_1;
 		Owner_1 = owner_1;
 		Poke_2 = poke_2;
@@ -63,16 +69,7 @@ public class Combat implements Serializable {
 		Poke_1 = poke_1;
 	}
 
-
-	public Owner getOwner_1() {
-		return Owner_1;
-	}
-
-
-	public void setOwner_1(Owner owner_1) {
-		Owner_1 = owner_1;
-	}
-
+	
 
 	public Pokemon getPoke_2() {
 		return Poke_2;
@@ -84,20 +81,33 @@ public class Combat implements Serializable {
 	}
 
 
-	public Owner getOwner_2() {
+	public String getOwner_1() {
+		return Owner_1;
+	}
+
+
+	public void setOwner_1(String owner_1) {
+		Owner_1 = owner_1;
+	}
+
+
+	public String getOwner_2() {
 		return Owner_2;
 	}
 
 
-	public void setOwner_2(Owner owner_2) {
+	public void setOwner_2(String owner_2) {
 		Owner_2 = owner_2;
 	}
 
 
-	@Override
-	public String toString() {
-		return "Combat [Poke_1=" + Poke_1.getNom() + ", Owner_1=" + Owner_1.getPrenom()
-				+ ", Poke_2=" + Poke_2.getNom() + ", Owner_2=" + Owner_2.getPrenom() + "]";
+	public int getIdCombat() {
+		return IdCombat;
+	}
+
+
+	public void setIdCombat(int idCombat) {
+		IdCombat = idCombat;
 	}
 
 
@@ -105,6 +115,7 @@ public class Combat implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + IdCombat;
 		result = prime * result + ((Owner_1 == null) ? 0 : Owner_1.hashCode());
 		result = prime * result + ((Owner_2 == null) ? 0 : Owner_2.hashCode());
 		result = prime * result + ((Poke_1 == null) ? 0 : Poke_1.hashCode());
@@ -122,6 +133,8 @@ public class Combat implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Combat other = (Combat) obj;
+		if (IdCombat != other.IdCombat)
+			return false;
 		if (Owner_1 == null) {
 			if (other.Owner_1 != null)
 				return false;
@@ -145,12 +158,15 @@ public class Combat implements Serializable {
 		return true;
 	}
 
-	
+
+	@Override
+	public String toString() {
+		return "Combat [IdCombat=" + IdCombat + ", Poke_1=" + Poke_1.getNom()
+				+ ", Owner_1=" + Owner_1 + ", Poke_2=" + Poke_2.getNom() + ", Owner_2="
+				+ Owner_2 + "]";
+	}
 
 
 	
-	
-	
-
 	
 }

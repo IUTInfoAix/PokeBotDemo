@@ -29,7 +29,11 @@ public class JudgeBotWinnerCell implements SmartCell {
 			Combat combat = daocombat.getByPokemon(Poke);
 			
 			Pokemon poke1 = combat.getPoke_1();
+			System.out.println(poke1);
 			Pokemon poke2 = combat.getPoke_2();
+			System.out.println(poke2);
+			
+			daocombat.delete(combat);
 			
 			return (Poke.equals(poke1) ? poke2.getNom() : poke1.getNom()) + " #win";
 			

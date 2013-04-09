@@ -36,11 +36,14 @@ INSERT INTO POKEMON VALUES ( "@Dracaufeu13" , "Dracaufeu" , 100 , "N.1" , "XP.0"
 
 CREATE TABLE COMBAT 
 (
-	POKE_1 VARCHAR(20), 
-	POKE_2 VARCHAR(20), 
+	NUM_CB INT,
+	POKE_1 VARCHAR(20),
+	OWNER_1 VARCHAR(20), 
+	POKE_2 VARCHAR(20),
+	OWNER_2 VARCHAR(20), 
 	PRIMARY KEY(POKE_1,POKE_2),
 	FOREIGN KEY (POKE_1) REFERENCES OWNER(POKEMON),
 	FOREIGN KEY (POKE_2) REFERENCES OWNER(POKEMON)
 );
-
-INSERT INTO COMBAT VALUES ( "@Smogogo13" ,"@GwenGoupix" );
+insert into COMBAT values ( 0 , 'INCONNU' , NULL , 'INCONNU' , NULL );
+insert into COMBAT values ( 1 , '@Smogogo13' , '@cybsip' , '@GwenGoupix' ,  '@CloudDeLuna' ) ;

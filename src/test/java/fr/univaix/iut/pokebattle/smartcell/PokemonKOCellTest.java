@@ -13,6 +13,8 @@ public class PokemonKOCellTest {
 		PokemonKOCell cell = new PokemonKOCell();
 		
 		assertEquals("#KO /cc @Kyiio @cybsip @CloudDeLuna", cell.ask(new Tweet("Kyiio", "@GwenGoupix -10pv /cc @CloudDeLuna")));
+		//ce test a besoin que cette ligne soit presente dans la table Combat
+		//	insert into COMBAT values ( 1 , '@Smogogo13' , '@cybsip' , '@GwenGoupix' ,  '@CloudDeLuna' ) ;
 	}
 
 }

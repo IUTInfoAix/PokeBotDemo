@@ -35,7 +35,7 @@ public class DAOCombat {
 		}
 	}
 	
-	public Combat getByOwner ( Owner owner){
+	public Combat getByOwner ( String owner){
 		try 
 		{
 
@@ -49,6 +49,14 @@ public class DAOCombat {
 		{
 			return null;
 		}
+	}
+	
+	public int getMaxNumCB ()
+	{
+		
+		TypedQuery<Combat> query = entityManager.createNamedQuery(Combat.GET_MAX_NUM_CB , Combat.class);
+		
+		return query.getFirstResult();
 	}
 	
 	public Combat insert (Combat combat)

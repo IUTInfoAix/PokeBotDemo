@@ -44,34 +44,38 @@ public class JudgeBattleCell implements SmartCell {
 			
 			Pokemon pokemon1 = daoPoke.getByNom(nomPokemon);
 			if ( pokemon1 == null )
+			{
 				return null;
-		
+			}
 			Owner ow1 = daoOwn.getByPokemon(pokemon1);
 			
-			Pokemon pokemon2 = daoPoke.getByNom("INCONNU");
-			Owner ow2 = new Owner ( pokemon2 , nomDresseurAdversaire );
-			
+			Pokemon pokemon2 = daoPoke.getByNom("INCONNU");			
 			
 			if ( ow1.getPrenom().equals(nomDresseur) )
 			{
 				
 				Combat cb = new Combat ();
-				cb.setOwner_1(ow1);
+				int numCB = daoCb.getMaxNumCB();
+				cb.setIdCombat(numCB+1);
+				cb.setOwner_1(ow1.getPrenom());
 				cb.setPoke_1(pokemon1);
-				cb.setOwner_2(ow2);
+				cb.setOwner_2(nomDresseurAdversaire);
 				cb.setPoke_2(pokemon2);
-	
 				daoCb.insert(cb);
 				return "skip";
 			}
 			else
-				return nomDresseur + " " + ow1.getPrenom() + " is my owner";
+				return  "@"+question.getScreenName() + " " + ow1.getPrenom() + " is my owner";
 		}
 		else if (matcher2.matches())
 		{
-			
-			String nomDresseur = matcher1.group(1);
-			String nomPokemonAdversaire = matcher1.group(2);
+			System.out.println(" ");
+			System.out.println(" ");
+			System.out.println("Battle OK");
+			System.out.println(" ");
+			System.out.println(" ");
+			String nomDresseur = matcher2.group(1);
+			String nomPokemonAdversaire = matcher2.group(2);
 			
 			String nomDresseurAdversaire = "@"+question.getScreenName();
 			
@@ -79,14 +83,14 @@ public class JudgeBattleCell implements SmartCell {
 			Owner ow2 = daoOwn.getByPokemon(pokemon2) ;
 			if ( ow2.getPrenom().equals(nomDresseurAdversaire) )
 			{
-				Combat cb = daoCb.getByOwner(ow2);
+				Combat cb = daoCb.getByOwner(ow2.getPrenom());
 				cb.setPoke_2(pokemon2);
 				daoCb.update(cb);
 			}
 			else 
 			{
 				Owner ow1 = new Owner (null , nomDresseur ) ;
-				Combat cb = daoCb.getByOwner(ow1);
+				Combat cb = daoCb.getByOwner(ow1.getPrenom());
 				daoCb.delete(cb);
 				return "Le pokemon séléctionné ne vous appartient pas, fin du combat !!!";
 			}

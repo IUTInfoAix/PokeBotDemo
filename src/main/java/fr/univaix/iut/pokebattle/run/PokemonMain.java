@@ -8,6 +8,7 @@ public class PokemonMain {
     	
         BotRunner.runBot(new PokeBot(), "twitter4j-Smogogo.properties");
         BotRunner.runBot(new JudgeBot(),"twitter4j-Kyiio.properties");
-        BotRunner.runBot(new PokeBot(), "twitter4j-Dracaufeu.properties");
+        BotRunner.runBot(new PokeBot(), "twitter4j-Goupix.properties");
+        
     }
 }

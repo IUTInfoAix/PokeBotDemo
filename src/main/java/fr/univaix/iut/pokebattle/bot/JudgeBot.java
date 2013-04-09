@@ -33,10 +33,15 @@ public class JudgeBot implements Bot {
             String answer; 
             answer = cell.ask(question);
             
-            if ( answer == "skip" ) break;
+            if ( answer  == "skip" ) 
+            {
+            	break;
+            }
             
             if (answer != null)
+            {
                 return answer;
+            }
         }
         return null;
     }
