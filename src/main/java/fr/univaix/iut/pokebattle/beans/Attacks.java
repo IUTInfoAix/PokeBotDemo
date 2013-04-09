@@ -137,7 +137,9 @@ public class Attacks implements Serializable{
 				return false;
 			}
 		} else if (!attack.equals(other.attack))
+		{
 			return false;
+		}
 		if (Niveau == null) {
 			if (other.Niveau != null)
 			{
