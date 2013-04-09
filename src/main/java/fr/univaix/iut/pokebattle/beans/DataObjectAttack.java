@@ -1,9 +1,10 @@
 package fr.univaix.iut.pokebattle.beans;
 public class DataObjectAttack {
-    String niveau;
-    String nom;
-    String puissance;
-    String precision;
+    private String niveau;
+    private String nom;
+    private String puissance;
+    private String precision;
+	private String pp;
     
     public String getPp() {
 		return pp;
@@ -28,8 +29,6 @@ public class DataObjectAttack {
 	public String getPrecision() {
 		return precision;
 	}
-
-	String pp;
 
     public DataObjectAttack(String niveau, String nom, String puissance, String precision, 
                             String pp) {

@@ -1,5 +1,7 @@
 package fr.univaix.iut.pokebattle.bot;
 
+import java.util.List;
+
 import twitter4j.TwitterException;
 import fr.univaix.iut.pokebattle.smartcell.PokemonAttackCell;
 import fr.univaix.iut.pokebattle.smartcell.PokemonCaptureCell;
@@ -17,15 +19,18 @@ public class PokeBot implements Bot {
      * List of smartcell the questions go through to
      * find an answer.
      */
-    final SmartCell[] smartCells = new SmartCell[]{
-    		new PokemonFeatureAttackCell(),
-    		new PokemonAttackCell(),
-    		new PokemonCaptureCell(),
-            new PokemonOwnerCell(),
-            new PokemonFeatureCell(),
-            new PokemonCriesCell(),
-    };
+	private final SmartCell[] smartCells = new SmartCell[]{
+	    		new PokemonFeatureAttackCell(),
+	    		new PokemonAttackCell(),
+	    		new PokemonCaptureCell(),
+	            new PokemonOwnerCell(),
+	            new PokemonFeatureCell(),
+	            new PokemonCriesCell(),
+	    };
 
+    public SmartCell[] getSmartCells() {
+		return smartCells;
+	}
     /**
      * Ask something to Bot, it will respond to you.
      *

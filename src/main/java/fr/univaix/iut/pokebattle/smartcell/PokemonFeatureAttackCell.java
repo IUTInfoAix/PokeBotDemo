@@ -53,8 +53,9 @@ public class PokemonFeatureAttackCell implements SmartCell {
 						  know = false;
 				  }
 				  if (know == false)
+				  {
 					  return "@" + question.getScreenName() + " O_o ?";
-				  
+				  }
 				  //Si on arrive là le pokemon connaît l'attaque demandée
 					  
 				  if ( question.getText().contains("#PP")) 
