@@ -33,18 +33,18 @@ public class PokemonCaptureCell implements SmartCell {
 			DAOPokemon daoPoke = daof.createDAOPokemon();
 			
 			String[] phrase = question.getText().split(" ");
-			Pokemon Poke = daoPoke.getByNom(phrase[0]);
-			Owner owner = daoOwn.getByPokemon(Poke);
+			Pokemon poke = daoPoke.getByNom(phrase[0]);
+			Owner owner = daoOwn.getByPokemon(poke);
 			
 			
 			if (owner == null) {
 				Owner own = new Owner();
 				
 				own.setPrenom("@" + question.getScreenName());
-				own.setPokemon(Poke);
+				own.setPokemon(poke);
 				
 				Twitter twitter = TwitterFactory.getSingleton();
-				String arg0 = Poke.getNom();
+				String arg0 = poke.getNom();
 				String arg1 = "";
 				String arg2 = "";
 				String arg3 = "#pokebattle - #pokemon - Owner: " + own.getPrenom();

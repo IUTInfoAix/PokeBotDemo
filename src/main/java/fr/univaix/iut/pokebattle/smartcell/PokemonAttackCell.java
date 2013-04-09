@@ -4,9 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-//import twitter4j.Twitter;
 import twitter4j.TwitterException;
-//import twitter4j.TwitterFactory;
 import fr.univaix.iut.pokebattle.DAO.DAOFactory;
 import fr.univaix.iut.pokebattle.DAO.DAOOwner;
 import fr.univaix.iut.pokebattle.DAO.DAOPokemon;
@@ -19,7 +17,6 @@ public class PokemonAttackCell implements SmartCell {
 		public String ask(Tweet question) throws IllegalStateException, TwitterException {	
 			if ( question.getText().contains("#attack")) 
 			{
-				//Twitter twitter = TwitterFactory.getSingleton();
 				EntityManagerFactory emf = Persistence.createEntityManagerFactory("Pokemon");
 		        EntityManager em = emf.createEntityManager();
 				DAOFactory daof = new DAOFactory(em);
