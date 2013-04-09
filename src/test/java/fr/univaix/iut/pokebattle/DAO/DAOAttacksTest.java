@@ -1,4 +1,4 @@
-/*package fr.univaix.iut.pokebattle.DAO;
+package fr.univaix.iut.pokebattle.DAO;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -60,4 +60,4 @@ public class DAOAttacksTest {
         em.getTransaction().commit();
 	}
 
-}*/
+}

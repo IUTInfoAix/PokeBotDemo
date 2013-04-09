@@ -119,47 +119,81 @@ public class Attacks implements Serializable{
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
+		{
 			return true;
+		}
 		if (obj == null)
+		{
 			return false;
+		}
 		if (getClass() != obj.getClass())
+		{
 			return false;
+		}
 		Attacks other = (Attacks) obj;
 		if (attack == null) {
 			if (other.attack != null)
+			{
 				return false;
+			}
 		} else if (!attack.equals(other.attack))
 			return false;
 		if (Niveau == null) {
 			if (other.Niveau != null)
+			{
 				return false;
-		} else if (!Niveau.equals(other.Niveau))
+			}
+		} 
+		else if (!Niveau.equals(other.Niveau))
+		{	
 			return false;
+		}
 		if (PP == null) {
 			if (other.PP != null)
+			{
 				return false;
-		} else if (!PP.equals(other.PP))
+			}
+		} 
+		else if (!PP.equals(other.PP))
+		{
 			return false;
+		}
 		if (PPMAX == null) {
 			if (other.PPMAX != null)
+			{
 				return false;
+			}
 		} else if (!PPMAX.equals(other.PPMAX))
+		{
 			return false;
+		}
 		if (poke == null) {
 			if (other.poke != null)
+			{
 				return false;
+			}
 		} else if (!poke.equals(other.poke))
+		{
 			return false;
+		}
 		if (Precision == null) {
 			if (other.Precision != null)
+			{
 				return false;
+			}
 		} else if (!Precision.equals(other.Precision))
+		{
 			return false;
+		}
 		if (Puissance == null) {
 			if (other.Puissance != null)
+			{
 				return false;
+			}
 		} else if (!Puissance.equals(other.Puissance))
+		{
 			return false;
+		}
 		return true;
 	}
 
