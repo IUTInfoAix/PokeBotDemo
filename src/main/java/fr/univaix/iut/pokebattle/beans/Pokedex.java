@@ -27,7 +27,8 @@ public final class Pokedex {
 		{
 			return pok;
 		}
-		return pok = new Pokedex();
+		pok = new Pokedex();
+		return pok;
 	}
 	
 	public DataObjectPokemon getPokemon (String pok)

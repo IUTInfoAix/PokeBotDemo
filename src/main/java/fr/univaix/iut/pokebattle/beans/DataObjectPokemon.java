@@ -19,7 +19,7 @@ public class DataObjectPokemon {
 	private String couleur;
 	private int forme;
 
-    DataObjectAttack[] attaques;
+    private DataObjectAttack[] attaques;
 
     public DataObjectPokemon(){
     }

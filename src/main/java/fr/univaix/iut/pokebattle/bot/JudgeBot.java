@@ -14,11 +14,16 @@ public class JudgeBot implements Bot {
      * find an answer.
      */
 
-    final SmartCell[] smartCells = new SmartCell[]{
+	private final SmartCell[] smartCells = new SmartCell[]{
     		new JudgeBotPVCell(),
     		new JudgeBotWinnerCell(),
     		new JudgeBattleCell(),
     };
+
+
+	public SmartCell[] getSmartCells() {
+		return smartCells;
+	}
 
 
 	/**
@@ -30,14 +35,14 @@ public class JudgeBot implements Bot {
      * @throws IllegalStateException 
      */
     @Override
-    public String ask(Tweet question) throws IllegalStateException, TwitterException {
+    public String ask(Tweet question) throws TwitterException {
         for (SmartCell cell : smartCells) {
             String answer; 
             answer = cell.ask(question);
             
-            if ( answer  == "skip" ) 
+            if ( answer != null && answer.equals("skip") ) 
             {
-            	break;
+            	return null;
             }
             
             if (answer != null)
