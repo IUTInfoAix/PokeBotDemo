@@ -17,7 +17,7 @@ public class JudgeBotWinnerCellTest {
 		
 		JudgeBotWinnerCell cell = new JudgeBotWinnerCell();
 		
-		assertEquals("@Smogogo13 #win", cell.ask(new Tweet("GwenGoupix", "#KO /cc @Kyiio @cybsip @CloudDeLuna")));
+		assertEquals("@Smogogo13 #Win +24xp", cell.ask(new Tweet("GwenGoupix", "#KO /cc @Kyiio @cybsip @CloudDeLuna")));
 	}
 
 }

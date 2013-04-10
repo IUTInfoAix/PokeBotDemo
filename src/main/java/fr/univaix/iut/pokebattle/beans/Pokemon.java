@@ -30,9 +30,9 @@ public class Pokemon implements Serializable{
     @JoinColumn ( name = "Nom")
 	private String nom;
 	private String race;
-	private String niveau;
+	private int niveau;
 	private int pV;
-	private String xP;
+	private int xP;
 	@Column( name = "ATTS")
     private int attack;
 	@Column( name = "DEFS")
@@ -57,10 +57,10 @@ public class Pokemon implements Serializable{
 	public void setRace(String racee) {
 		race = racee;
 	}
-	public String getNiveau() {
+	public int getNiveau() {
 		return niveau;
 	}
-	public void setNiveau(String niveauu) {
+	public void setNiveau(int niveauu) {
 		niveau = niveauu;
 	}
 	public int getPV() {
@@ -69,10 +69,10 @@ public class Pokemon implements Serializable{
 	public void setPV(int pVV) {
 		pV = pVV;
 	}	
-	public String getXP() {
+	public int getXP() {
 		return xP;
 	}
-	public void setXP(String xPP) {
+	public void setXP(int xPP) {
 		xP = xPP;
 	}
 	public int getAttack() {
@@ -105,10 +105,10 @@ public class Pokemon implements Serializable{
 	public void setSpeed(int speed) {
 		this.speed = speed;
 	}
-	
+	@Override
 	public String toString() {
-		return "Pokemon [Nom=" + nom + ", Race=" + race + ", Niveau=" + niveau
-				+ ", PV=" + pV + ", XP=" + xP + ", attack=" + attack
+		return "Pokemon [nom=" + nom + ", race=" + race + ", niveau=" + niveau
+				+ ", pV=" + pV + ", xP=" + xP + ", attack=" + attack
 				+ ", defense=" + defense + ", attackSpecial=" + attackSpecial
 				+ ", defenseSpecial=" + defenseSpecial + ", speed=" + speed
 				+ "]";
@@ -117,94 +117,53 @@ public class Pokemon implements Serializable{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((niveau == null) ? 0 : niveau.hashCode());
-		result = prime * result + ((nom == null) ? 0 : nom.hashCode());
-		result = prime * result + pV;
-		result = prime * result + ((race == null) ? 0 : race.hashCode());
-		result = prime * result + ((xP == null) ? 0 : xP.hashCode());
 		result = prime * result + attack;
 		result = prime * result + attackSpecial;
 		result = prime * result + defense;
 		result = prime * result + defenseSpecial;
+		result = prime * result + niveau;
+		result = prime * result + ((nom == null) ? 0 : nom.hashCode());
+		result = prime * result + pV;
+		result = prime * result + ((race == null) ? 0 : race.hashCode());
 		result = prime * result + speed;
+		result = prime * result + xP;
 		return result;
 	}
-
+	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
-		{
 			return true;
-		}
 		if (obj == null)
-		{
 			return false;
-		}
 		if (getClass() != obj.getClass())
-		{
 			return false;
-		}
 		Pokemon other = (Pokemon) obj;
-		if (niveau == null) {
-			if (other.niveau != null)
-			{
-				return false;
-			}
-		} else if (!niveau.equals(other.niveau))
-		{
+		if (attack != other.attack)
 			return false;
-		}
+		if (attackSpecial != other.attackSpecial)
+			return false;
+		if (defense != other.defense)
+			return false;
+		if (defenseSpecial != other.defenseSpecial)
+			return false;
+		if (niveau != other.niveau)
+			return false;
 		if (nom == null) {
 			if (other.nom != null)
-			{
 				return false;
-			}
 		} else if (!nom.equals(other.nom))
-		{
 			return false;
-		}
 		if (pV != other.pV)
-		{
 			return false;
-		}
 		if (race == null) {
 			if (other.race != null)
-			{
 				return false;
-			}
 		} else if (!race.equals(other.race))
-		{
 			return false;
-		}
-		if (xP == null) {
-			if (other.xP != null)
-			{
-				return false;
-			}
-		} else if (!xP.equals(other.xP))
-		{
-			return false;
-		}
-		if (attack != other.attack)
-		{
-			return false;
-		}
-		if (attackSpecial != other.attackSpecial)
-		{
-			return false;
-		}
-		if (defense != other.defense)
-		{
-			return false;
-		}
-		if (defenseSpecial != other.defenseSpecial)
-		{
-			return false;
-		}
 		if (speed != other.speed)
-		{
 			return false;
-		}
+		if (xP != other.xP)
+			return false;
 		return true;
 	}
-
 }

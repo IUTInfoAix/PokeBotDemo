@@ -22,8 +22,8 @@ CREATE TABLE POKEMON
    (    NOM VARCHAR(20),
         RACE VARCHAR(20),
         PV INT,
-        NIVEAU VARCHAR(20),
-        XP VARCHAR(20),
+        NIVEAU INT,
+        XP INT,
         ATTS INT,
         DEFS INT,
         ATTSPE INT,
@@ -33,9 +33,9 @@ CREATE TABLE POKEMON
         FOREIGN KEY (NOM) REFERENCES OWNER(POKEMON)
    );
  
-INSERT INTO POKEMON VALUES ( "@GwenGoupix" , "Goupix" , 100 , "N.1" , "XP.0" , 0 , 0 , 0 , 0 , 0 );
-INSERT INTO POKEMON VALUES ( "@Smogogo13" , "Smogogo" , 100 , "N.1" , "XP.0" , 0 , 0 , 0 , 0 , 0 );
-INSERT INTO POKEMON VALUES ( "@Dracaufeu13" , "Dracaufeu" , 100 , "N.1" , "XP.0" , 0 , 0 , 0 , 0 , 0 );
+INSERT INTO POKEMON VALUES ( "@GwenGoupix" , "Goupix" , 100 , 1 , 0 , 0 , 0 , 0 , 0 , 0 );
+INSERT INTO POKEMON VALUES ( "@Smogogo13" , "Smogogo" , 100 , 1 , 0 , 0 , 0 , 0 , 0 , 0 );
+INSERT INTO POKEMON VALUES ( "@Dracaufeu13" , "Dracaufeu" , 100 , 1 , 0 , 0 , 0 , 0 , 0 , 0 );
 INSERT INTO POKEMON VALUES ( "INCONNU", NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 

@@ -19,14 +19,14 @@ public class PokemonFeatureCellTest {
 	
 	@Test
 	public void testLevel() {
-		assertEquals("@CloudDeLuna #level = N.1", cell.ask(new Tweet("CloudDeLuna", "@GwenGoupix #stat #level ?")));
+		assertEquals("@CloudDeLuna #level = 1", cell.ask(new Tweet("CloudDeLuna", "@GwenGoupix #stat #level ?")));
 		System.out.println(cell.ask(new Tweet("CloudDeLuna", "@GwenGoupix #stat #level ?")));
 	}
 	
 	@Test
 	public void testXP() {
 		System.out.println(cell.ask(new Tweet("CloudDeLuna", "@GwenGoupix #stat #XP ?")));
-		assertEquals("@CloudDeLuna #XP = XP.0", cell.ask(new Tweet("CloudDeLuna", "@GwenGoupix #stat #XP ?")));
+		assertEquals("@CloudDeLuna #XP = 0", cell.ask(new Tweet("CloudDeLuna", "@GwenGoupix #stat #XP ?")));
 	}
 	
 	/*@Test
