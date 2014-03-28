@@ -1,7 +1,8 @@
-package fr.univaix.iut.pokebattle.bot;
+package fr.univaix.iut.pokebattle.smartcell;
 
 import fr.univaix.iut.pokebattle.jpa.DAOFactoryJPA;
 import fr.univaix.iut.pokebattle.jpa.DAOPokemon;
+import fr.univaix.iut.pokebattle.jpa.Pokemon;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.dataset.xml.FlatXmlDataSet;
@@ -20,19 +21,16 @@ import java.sql.Connection;
 
 import static org.junit.Assert.assertEquals;
 
-/**
- * Integration tests checking the PokeBot
- * behavior. We just test some cases to make sure that the
- * PokeBot is using smartcell properly.
- */
-public class PokeBotTest {
-    PokeBot pokeBot = new PokeBot();
+public class PokeAskOwnerCellTest {
 
     private static EntityManager entityManager;
     private static FlatXmlDataSet dataset;
     private static DatabaseConnection dbUnitConnection;
     private static EntityManagerFactory entityManagerFactory;
     private static DAOPokemon dao;
+
+    PokeAskOwnerCell cell = new PokeAskOwnerCell();
+
     @BeforeClass
     public static void initTestFixture() throws Exception {
 
@@ -64,29 +62,13 @@ public class PokeBotTest {
     }
 
     @Test
-    public void testSalut() {
-        assertEquals("Fleeex...zZz", pokeBot.ask(new Tweet("Salut")));
-        assertEquals("Fleeex...zZz", pokeBot.ask(new Tweet("This is not a question.")));
-        assertEquals("@nedseb RON-FLEEEX", pokeBot.ask(new Tweet("nedseb", "Salut")));
-        assertEquals("@nedseb RON-FLEEEX", pokeBot.ask(new Tweet("nedseb", "This is not a question.")));
+	public void testEleveur() {
+		assertEquals("@huyvin @slydevis is my owner", cell.ask(new Tweet("huyvin", "@Pikachu Owner?")));
+	}
 
-    }
-    
     @Test
-    public void testOwner() {
-    	assertEquals("@slydevis No owner", pokeBot.ask(new Tweet("slydevis", "@Rattata Owner?")));
+    public void testSansEleveur() {
+
+        assertEquals("@huyvin No owner", cell.ask(new Tweet("huyvin", "@Rattata Owner?")));
     }
-    
-    
-    @Test
-    public void testBadAtk() {
-    	assertEquals("@nedseb RON-FLEEEX", pokeBot.ask(new Tweet("nedseb", "attack")));
-    }
-    
-    @Test
-    public void testAtk() {
-    	assertEquals("@bulbizarre #attack #plaquage! /cc @nedseb", pokeBot.ask(new Tweet
-    			("nedseb", "#attack #plaquage @bulbizarre")));
-    }
-    
 }
