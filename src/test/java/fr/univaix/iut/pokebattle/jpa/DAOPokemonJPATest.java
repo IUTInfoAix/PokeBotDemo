@@ -1,8 +1,6 @@
-package fr.univaix.iut.pokebattle.bot;
+package fr.univaix.iut.pokebattle.jpa;
 
-import fr.univaix.iut.pokebattle.jpa.DAOFactoryJPA;
-import fr.univaix.iut.pokebattle.jpa.DAOPokemon;
-import fr.univaix.iut.pokebattle.twitter.Tweet;
+import fr.univaix.iut.pokebattle.run.PokemonMain;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.dataset.xml.FlatXmlDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
@@ -13,20 +11,18 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import fr.univaix.iut.pokebattle.jpa.Pokemon.Type;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.sql.Connection;
+import java.util.List;
+import java.util.Map;
 
-import static org.junit.Assert.assertEquals;
+import static org.fest.assertions.Assertions.assertThat;
 
-/**
- * Integration tests checking the PokeBot
- * behavior. We just test some cases to make sure that the
- * PokeBot is using smartcell properly.
- */
-public class PokeBotTest {
-    PokeBot pokeBot = new PokeBot();
+public class DAOPokemonJPATest {
 
     private static EntityManager entityManager;
     private static FlatXmlDataSet dataset;
@@ -35,6 +31,7 @@ public class PokeBotTest {
     private static DAOPokemon dao;
     @BeforeClass
     public static void initTestFixture() throws Exception {
+        // Get the entity manager for the tests.
 
         entityManagerFactory = Persistence.createEntityManagerFactory("pokebattlePUTest");
         entityManager = entityManagerFactory.createEntityManager();
@@ -64,29 +61,47 @@ public class PokeBotTest {
     }
 
     @Test
-    public void testSalut() {
-        assertEquals("Fleeex...zZz", pokeBot.ask(new Tweet("Salut")));
-        assertEquals("Fleeex...zZz", pokeBot.ask(new Tweet("This is not a question.")));
-        assertEquals("@nedseb RON-FLEEEX", pokeBot.ask(new Tweet("nedseb", "Salut")));
-        assertEquals("@nedseb RON-FLEEEX", pokeBot.ask(new Tweet("nedseb", "This is not a question.")));
-
+    public void testInsert() throws Exception {
+        Pokemon raichu = new Pokemon("Raichu");
+        raichu.setType1(Type.ELECTRIC);
+        dao.insert(raichu);
+        assertThat(dao.getById("Raichu").getName()).isEqualTo("Raichu");
+        assertThat(dao.getById("Raichu").getType1()).isEqualTo(Type.ELECTRIC);
     }
 
     @Test
-    public void testOwner() {
-    	assertEquals("@slydevis No owner", pokeBot.ask(new Tweet("slydevis", "@Rattata Owner?")));
+    public void testFindByType() throws Exception {
+        List<Pokemon> pokemons = dao.findByType(Type.ELECTRIC);
+        assertThat(pokemons.get(0).getName()).isEqualTo("Pikachu");
     }
-    
-    
+
     @Test
-    public void testBadAtk() {
-    	assertEquals("@nedseb RON-FLEEEX", pokeBot.ask(new Tweet("nedseb", "attack")));
+    public void testFindAll() throws Exception {
+        List<Pokemon> pokemons = dao.findAll();
+        assertThat(pokemons.get(0).getName()).isEqualTo("Pikachu");
+        assertThat(pokemons.get(1).getName()).isEqualTo("Rattata");
     }
-    
+
     @Test
-    public void testAtk() {
-    	assertEquals("@bulbizarre #attack #plaquage! /cc @nedseb", pokeBot.ask(new Tweet
-    			("nedseb", "#attack #plaquage @bulbizarre")));
+    public void testGetById() throws Exception {
+        assertThat(dao.getById("Pikachu").getName()).isEqualTo("Pikachu");
+        assertThat(dao.getById("Rattata").getName()).isEqualTo("Rattata");
     }
-    
+
+    @Test
+    public void testDelete() throws Exception {
+        dao.delete(dao.getById("Pikachu"));
+        assertThat(dao.getById("Pikachu")).isNull();
+    }
+
+    @Test
+    public void testUpdate() throws Exception {
+        Pokemon pikachu = dao.getById("Pikachu");
+        assertThat(pikachu.getAttack()).isGreaterThan(0);
+        pikachu.setAttack(-1);
+        dao.update(pikachu);
+        assertThat(dao.getById("Pikachu").getAttack()).isLessThan(0);
+    }
 }
+
+
