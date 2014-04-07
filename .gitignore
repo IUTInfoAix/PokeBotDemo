@@ -14,3 +14,4 @@ target/
 *.war
 *.ear
 *.swp
+/bin
