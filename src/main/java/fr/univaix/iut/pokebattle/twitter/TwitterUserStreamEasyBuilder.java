@@ -12,21 +12,22 @@ import twitter4j.TwitterException;
 import twitter4j.UserStreamListener;
 
 public class TwitterUserStreamEasyBuilder {
-    private static final Logger LOGGER = LoggerFactory.getLogger(TwitterBot.class);
+    private static final Logger LOGGER =
+    LoggerFactory.getLogger(TwitterBot.class);
     private Credentials credentials;
     private Twitter twitter;
     private Bot bot;
 
-    public TwitterUserStreamEasyBuilder(Credentials credentials, Twitter twitter, Bot bot) {
+    public TwitterUserStreamEasyBuilder(final Credentials credentials, final Twitter twitter, final Bot bot) {
         this.credentials = credentials;
         this.twitter = twitter;
         this.bot = bot;
     }
 
-    public TwitterUserStreamEasy build() {
+    public final TwitterUserStreamEasy build() {
         UserStreamListener listener = new UserStreamAdapter() {
             @Override
-            public void onStatus(Status status) {
+            public void onStatus(final Status status) {
                 LOGGER.info("TwitterUserStreamEasyExample.onStatus()");
                 try {
                     processNewQuestion(status, bot);
@@ -38,28 +39,31 @@ public class TwitterUserStreamEasyBuilder {
         return new TwitterUserStreamEasy(listener, credentials);
     }
 
-    private void processNewQuestion(Status status, Bot bot) throws TwitterException {
+    private void processNewQuestion(final Status status, final Bot bot) throws TwitterException {
         if (isNotANewQuestion(status)) {
             LOGGER.info("Ignored status change");
             return;
         }
 
-        String response = bot.ask(new Tweet(status.getUser().getScreenName(), status.getText()));
+        String response = bot.ask(new Tweet(status.getUser()
+                .getScreenName(), status.getText()));
 
         if (response != null) {
             twitter.updateStatus(response);
         }
     }
 
-    private boolean isNotANewQuestion(Status status) throws TwitterException {
+    private boolean isNotANewQuestion(final Status status)
+            throws TwitterException {
         return isTweetOfMe(status) || !isTweetForMe(status);
     }
 
-    private boolean isTweetForMe(Status status) throws TwitterException {
-        return status.getText().toLowerCase().contains(twitter.getScreenName().toLowerCase());
+    private boolean isTweetForMe(final Status status) throws TwitterException {
+        return status.getText().toLowerCase()
+                .contains(twitter.getScreenName().toLowerCase());
     }
 
-    private boolean isTweetOfMe(Status status) throws TwitterException {
+    private boolean isTweetOfMe(final Status status) throws TwitterException {
         return status.getUser().getId() == twitter.getId();
     }
 }

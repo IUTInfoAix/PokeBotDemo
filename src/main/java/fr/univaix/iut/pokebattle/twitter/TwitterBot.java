@@ -9,12 +9,14 @@ import twitter4j.Twitter;
 public class TwitterBot {
     private TwitterUserStreamEasy twitterUserStreamEasy;
 
-    public TwitterBot(final Bot bot, Credentials credentials) {
+    public TwitterBot(final Bot bot, final Credentials credentials) {
         Twitter twitter = new TwitterBuilder(credentials).build();
-        this.twitterUserStreamEasy = new TwitterUserStreamEasyBuilder(credentials, twitter, bot).build();
+        this.twitterUserStreamEasy =
+                new TwitterUserStreamEasyBuilder(credentials,
+                        twitter, bot).build();
     }
 
-    public void startBot() throws TUSEException {
+    public final void startBot() throws TUSEException {
         twitterUserStreamEasy.oauth();
     }
 

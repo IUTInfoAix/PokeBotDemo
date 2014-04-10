@@ -8,11 +8,11 @@ import twitter4j.conf.ConfigurationBuilder;
 public class TwitterBuilder {
     private Credentials credentials;
 
-    public TwitterBuilder(Credentials credentials) {
+    public TwitterBuilder(final Credentials credentials) {
         this.credentials = credentials;
     }
 
-    public Twitter build() {
+    public final Twitter build() {
         ConfigurationBuilder cb = new ConfigurationBuilder();
 
         cb.setDebugEnabled(true)
