@@ -11,6 +11,7 @@ public class TwitterBot {
 
     public TwitterBot(final Bot bot, Credentials credentials) {
         Twitter twitter = new TwitterBuilder(credentials).build();
+        bot.setTwitter(twitter);
         this.twitterUserStreamEasy = new TwitterUserStreamEasyBuilder(credentials, twitter, bot).build();
     }
 

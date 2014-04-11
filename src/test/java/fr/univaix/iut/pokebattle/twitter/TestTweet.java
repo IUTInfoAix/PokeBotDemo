@@ -2,6 +2,8 @@ package fr.univaix.iut.pokebattle.twitter;
 
 import org.junit.Test;
 
+import twitter4j.TwitterStream;
+
 import static org.junit.Assert.assertEquals;
 
 public class TestTweet {
@@ -16,5 +18,6 @@ public class TestTweet {
         assertEquals("coucou !", tweet2.getText());
 
     }
+
 
 }

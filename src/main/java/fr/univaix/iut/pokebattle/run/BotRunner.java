@@ -9,9 +9,6 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class BotRunner {
-    private BotRunner() {
-
-    }
 
     public static void runBot(Bot bot, String credentialsFileName) throws TUSEException {
         try (InputStream inputStream = getResourceAsStream(credentialsFileName)) {
@@ -26,4 +23,5 @@ public class BotRunner {
     static InputStream getResourceAsStream(String fileName) {
         return PokemonMain.class.getClassLoader().getResourceAsStream(fileName);
     }
+    
 }

@@ -62,4 +62,5 @@ public class TwitterUserStreamEasyBuilder {
     private boolean isTweetOfMe(Status status) throws TwitterException {
         return status.getUser().getId() == twitter.getId();
     }
+    
 }
